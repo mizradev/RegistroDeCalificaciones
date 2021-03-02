@@ -45,7 +45,7 @@ exports.actualizarLibro = async (req, res) => {
     
     const query = 'CALL ACTU_LIBRO(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
     try {
-        const result = mysqlConnection.query(query, [id, ISBN, TITULO, EDICION, DESCRIPCION_LIBRO, IMG, IDIOMA, NOMBRE_EDITORIAL, NOMBRE_CATEGORIA, DESCRIPCION, NOMBRE_AUTOR, NACIONALIDAD, PREMIOS, RANKING, USR_REGISTRO]);
+        const result = await mysqlConnection.query(query, [id, ISBN, TITULO, EDICION, DESCRIPCION_LIBRO, IMG, IDIOMA, NOMBRE_EDITORIAL, NOMBRE_CATEGORIA, DESCRIPCION, NOMBRE_AUTOR, NACIONALIDAD, PREMIOS, RANKING, USR_REGISTRO]);
         return res.json({Status: 'Libro Actualizado'});
     } catch (error) {
         console.log(error);
@@ -59,7 +59,7 @@ exports.eliminarLibro = async (req, res) => {
     const query = 'CALL DEL_LIBRO(?, ?)';
 
     try {
-        const result = mysqlConnection.query(query, [id, USR_REGISTRO]);
+        const result = await mysqlConnection.query(query, [id, USR_REGISTRO]);
         return res.json({Status: 'Libro Eliminado'});
     } catch (error) {
         console.log(error);
