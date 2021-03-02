@@ -12,14 +12,17 @@ const mysqlConnection = mysql.createPool({
 
 mysqlConnection.getConnection((error, connection) => {
     if(error){
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        if (error.code === 'PROTOCOL_CONNECTION_LOST') {
             console.error('Database connection was closed.');
         }
-        if (err.code === 'ER_CON_COUNT_ERROR') {
+        if (error.code === 'ER_CON_COUNT_ERROR') {
             console.error('Database has to many connections');
         }
-        if (err.code === 'ECONNREFUSED') {
+        if (error.code === 'ECONNREFUSED') {
             console.error('Database connection was refused');
+        }
+        if(error.code === 'ER_NOT_SUPPORTED_AUTH_MODE'){
+            console.error(error.sqlMessage);
         }
     }
 

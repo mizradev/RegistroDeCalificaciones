@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.json({extended: true}));
 
 //Routes
-app.use('/api/v1/libros', require('./src/modules/biblioteca_virtual/routes'));
+app.use('/api/v1/calificaciones', require('./src/modules/registro_calificaciones/routes'));
 
 //Starting the server
 app.listen(app.get('port'), () => console.log(`server on port http://localhost:${app.get('port')}`));

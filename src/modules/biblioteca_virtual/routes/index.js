@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 //controllers
-const LibrosCtrl = require('../controllers/librosController');
+const LibrosCtrl = require('../controllers/LibrosCtrl');
 
 //const { check } = require('express-validator');
 
