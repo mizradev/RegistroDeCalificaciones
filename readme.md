@@ -14,6 +14,7 @@ Sistema desarrollado como proyecto para la clase de programación e implementaci
     MYSQL_DATABASE=bibliovirtual
     MYSQL_PORT=3306
     ```
+- Crear una rama diferente de ```main```, con el nombre del modulo que se va a desarrollar, con el comando ``` git checkout -b <nombre_de_la_rama> ```
 
 - Posicionarse en la carpeta RegistroDeCalificaciones
     ``` cd RegistroDeCalificaciones/ ```
