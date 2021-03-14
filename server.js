@@ -1,6 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-
+const path = require('path');
 const app = express();
 
 
@@ -13,7 +13,8 @@ app.engine('handlebars',
         defaultLayout: 'layout'
     })
 );
-
+app.set('view engine', 'handlebars');
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Settings
 app.set('port', process.env.PORT || 3000);
