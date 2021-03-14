@@ -1,8 +1,19 @@
 const express = require('express');
+const exphbs = require('express-handlebars');
+
 const app = express();
+
 
 // enviroments vars
 require('dotenv').config();
+
+// handlebars engine view
+app.engine('handlebars',
+    exphbs({
+        defaultLayout: 'layout'
+    })
+);
+
 
 //Settings
 app.set('port', process.env.PORT || 3000);
