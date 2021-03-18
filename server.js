@@ -27,7 +27,7 @@ app.use(express.json({extended: true}));
 //Routes pages
 app.use('/', require('./src/frontend/routes'));
 // Route api
-app.use('/api/v1/calificaciones', require('./src/modules/registro_calificaciones/routes'));
+app.use('/api/v1/calificaciones', require('./src/api/registro_calificaciones/routes'));
 
 //Starting the server
 app.listen(app.get('port'), () => console.log(`server on port http://localhost:${app.get('port')}`));
