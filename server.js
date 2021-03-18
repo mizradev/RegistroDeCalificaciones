@@ -8,13 +8,15 @@ const app = express();
 require('dotenv').config();
 
 // handlebars engine view
-app.engine('handlebars',
+app.engine('.hbs',
     exphbs({
-        defaultLayout: 'layout'
+        defaultLayout: 'main-layout',
+        extname: '.hbs'
     })
 );
-app.set('view engine', 'handlebars');
-app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', '.hbs');
+app.set('views', './src/frontend/views');
+app.use(express.static(path.join(__dirname+'/src/frontend', 'static')));
 
 //Settings
 app.set('port', process.env.PORT || 3000);
@@ -22,8 +24,13 @@ app.set('port', process.env.PORT || 3000);
 //Middlewares
 app.use(express.json({extended: true}));
 
-//Routes
+//Routes pages
+app.use('/', require('./src/frontend/routes'));
+// Route api
 app.use('/api/v1/calificaciones', require('./src/modules/registro_calificaciones/routes'));
 
 //Starting the server
 app.listen(app.get('port'), () => console.log(`server on port http://localhost:${app.get('port')}`));
+
+
+module.exports = app;
