@@ -167,11 +167,16 @@ select:focus {
 
 .form p {
    margin: 1rem 0;
-   font-size: 0.7rem;
+   font-size: 0.9rem;
 }
 
 .form p b a {
    text-decoration: none;
+   color: rgb(118, 118, 118);
+}
+
+.form p b a:hover {
+   color: #1da1f2;
 }
 
 .container.sign-in .form.sign-in,
