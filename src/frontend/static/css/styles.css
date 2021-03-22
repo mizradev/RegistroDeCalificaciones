@@ -76,6 +76,50 @@ body {
    transition-delay: 1s;
 }
 
+.form-control {
+   position: relative;
+   width: 100%;
+   margin-top: none;
+   margin-bottom: 1.3rem;
+
+   height: 50px;
+   border: none;
+   background-color: var(--gray);
+   border-radius: 0.5rem;
+   font-size: 1rem;
+   text-decoration: double;
+   color: var(--gray-2);
+}
+
+.form-control select {
+   width: 100%;
+   padding-left: 1rem;
+   padding: 1rem 1rem;
+   font-size: 1rem;
+   background-color: var(--gray);
+   border-radius: 0.5rem;
+   border: 0.125rem solid var(--white);
+   outline: none;
+}
+
+select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 30px;
+   padding: 5px;
+   width: 250px;
+   /* appearance: none; */
+}
+
+select::-ms-expand {
+   display: none;
+}
+
+select:focus {
+   outline-color: var(--twitter-color);
+}
+
 .input-group {
    position: relative;
    width: 100%;
