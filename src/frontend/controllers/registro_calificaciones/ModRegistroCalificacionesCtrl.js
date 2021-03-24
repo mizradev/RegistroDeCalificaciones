@@ -4,3 +4,4 @@ exports.pantalla_inicio = (req, res) => {
         registroCalificaciones: true
     })
 }
+

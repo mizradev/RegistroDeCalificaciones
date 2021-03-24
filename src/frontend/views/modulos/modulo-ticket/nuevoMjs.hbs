@@ -1,0 +1,82 @@
+<!-- CONTENIDO DEL FORMULARIO -->
+<div class="container-fluid">
+  <div class="container-fluid">
+<!-- Page Heading -->
+      <h3 class="m-0 font-weight-bold text-grey"> Nuevo mensaje  <i class="fas fa-comments"></i></h3>
+      <br>
+<!-- DataTales Example -->
+    <div class="card shadow  " >
+      <div class="card-header py-3" >  
+        <div class="card-body  ">
+          <div class="table-responsive" >
+             <table class="table table-bordered" id="dataTable" width="90%" cellspacing="0" >                        
+               <thead>
+                   <tr >
+                      <th width="5%">Id</th>
+                      <th>Nombre Completo</th>
+                      <th width="10%">Rol</th>
+                      <th>Asignatura</th>
+                      <th>Escribir / Responder</th>
+                                                    
+                   </tr>
+               </thead>                             
+               <tbody>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>
+                       <button type="submit"  style="margin: 5px" href="#Modal1"  data-toggle="modal"class="btn btn-warning"><i class="far fa-comment" ></i>
+                       </button>
+                       <a href="#"><button type="submit" class="btn btn-success"><i class="fa fa-reply"></i> 
+                      </td>                             
+                  </tr>                                           
+               </tbody>
+             </table>
+           </div>
+          </div>
+       </div>                          
+      </div>
+    </div>                          
+</div>
+               
+    <!-- MODAL PARA ENVIAR MENSAJE-->
+
+<div id="Modal1" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form method="POST">
+        <div class="modal-header">   
+          <div class="col-lg-2" >
+            <img class="rounded-circle" src=""alt="">
+            <h5 class="modal-title text-black"> NOMBRE </h5>
+          </div>   
+        </div>
+      </form>
+      <!--Cuerpo del modal-->
+<div class="modal-body"> 
+  <form>         
+    <div class="form-group" style="margin: 20px">
+        <input type="text"  placeholder="Escribe un mensaje" class="form-control" required>
+    </div>
+    <div style="position: relative; left: 20px">
+         <label class="btn btn-primary" for="my-file-selector">
+             <input id="my-file-selector" type="file" style="display:none" 
+              onchange="$('#upload-file-info').text(this.files[0].name)"> <i class="fa fa-cloud-upload"></i> Subir Archivo 
+         </label>
+          <span class='label label-info' id="upload-file-info"></span>
+    </div>
+    </div>            
+  </form>                   
+
+<!--Pie del modal-->
+<div class="modal-footer">
+   <button type="submit" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-paper-plane"> Enviar </i>
+   </button>
+   <button type="submit" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-ban" > Cancelar </i>
+   </button>                 
+</div>
+    </div>
+  </div>
+</div>

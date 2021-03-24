@@ -1,13 +1,13 @@
 //Llamado de los procedimientos almacenados de modulo ticket
-const mysqlConnection = require('./../../config/db');
+const mysqlConnection = require('../../../config/db');
 
 //consulta de mensaje nuevo
 exports.mensajeNuevo = async(req, res)=>{
     const {id} = req.params;
     const query = 'CALL sp_ViewNewMjs(?);';
        try {
-           const result = await mysqlConnection.query(query,[id]);
-           return res.json({Status:'todos su mensajes nuevos' });
+           const nuevoMjs = await mysqlConnection.query(query,[id]);
+           return res.json(nuevoMjs);
        } catch (error) {
            console.log(error);
        }
@@ -18,8 +18,8 @@ exports.mensajeNuevo = async(req, res)=>{
 exports.verMensajes=async(req, res)=>{
    const {id} =  req.params;
     try {
-        const mensaje = mysqlConnection.query('CALL sp_selectMensaje(?)',[id]);
-        return res.json({Status:"Todos sus mensajes"});
+        const mensaje = await mysqlConnection.query('CALL sp_selectMensaje(?);',[id]);
+        return res.json(mensaje);
     } catch (error) {
         console.log(error);
     }
@@ -32,8 +32,8 @@ exports.insertMensaje= async(req,res)=>{
     //person1  envia el mensaje 
     //person2 recibe el mensaje
     try {
-        const result = await mysqlConnection.query(query,[descripcion,almacenamiento,person1,person2,asig]);
-        return res.json({Status: "Mensaje Enviado"});
+        const insertMjs = await mysqlConnection.query(query,[descripcion,almacenamiento,person1,person2,asig]);
+        return res.json(insertMjs);
     } catch (error) {
         console.log(error);
     }
@@ -44,8 +44,8 @@ exports.insertMensaje= async(req,res)=>{
 exports.mensajeLeido=async(req,res)=>{
     const {id} = req.params;
     try {
-        const result = await mysqlConnection.query('CALL sp_UpdateEstMJS(?)',[id]);
-        return res.json({Status:"Mensaje Leido"});
+        const updateMjs = await mysqlConnection.query('CALL sp_UpdateEstMJS(?)',[id]);
+        return res.json(updateMjs);
     } catch (error) {
         console.log(error);
     }
@@ -58,8 +58,8 @@ exports.eliminar_mensaje = async (req,res)=>{
     const {id} = req.params;
   
     try {
-        const result = await mysqlConnection.query('CALL sp_deleteMensaje(?)',[id]);
-        return res.json ({Status: "Mensaje Eliminado"});
+        const deleteMjs = await mysqlConnection.query('CALL sp_deleteMensaje(?)',[id]);
+        return res.json (deleteMjs);
 
     } catch (error) {
         console.log(error)

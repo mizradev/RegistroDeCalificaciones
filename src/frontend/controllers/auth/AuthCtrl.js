@@ -34,6 +34,7 @@ exports.newPassword = (req, res) => {
         layout: false
     })
 }
+
 // exports.pantalla_inicio = (req, res) => {
 //     res.render('modulos/registro-calificaciones/home', {
 //         nombrePagina: 'Calificaciones'
