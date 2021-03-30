@@ -43,6 +43,20 @@ exports.newPassword = (req, res) => {
       layout: false,
    });
 };
+exports.correo = (req, res) => {
+   return res.render('auth/correo', {
+      nombrePagina: 'Auth - Correo',
+      pageAuthLogin: true,
+      layout: false,
+   });
+};
+exports.preguntas = (req, res) => {
+   return res.render('auth/preguntas', {
+      nombrePagina: 'Auth - Preguntas',
+      pageAuthLogin: true,
+      layout: false,
+   });
+};
 // exports.pantalla_inicio = (req, res) => {
 //    res.render('modulos/registro-calificaciones/home', {
 //       nombrePagina: 'Calificaciones',
