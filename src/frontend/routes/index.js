@@ -6,10 +6,12 @@ const authCtrl = require('../controllers/auth/AuthCtrl');
 const calificacionesCtrl = require('../controllers/registro_calificaciones/ModRegistroCalificacionesCtrl');
 //const { check } = require('express-validator');
 
+router.get('/', authCtrl.pantalla_inicio);
 router.get('/auth/login', authCtrl.pageAuth);
 router.get('/auth/recuperacion', authCtrl.recuperacion);
 router.get('/auth/new_password', authCtrl.newPassword);
-router.get('/', authCtrl.pantalla_inicio);
+router.get('/auth/correo', authCtrl.correo);
+router.get('/auth/preguntas', authCtrl.preguntas);
 
 router.get('/home', authCtrl.home);
 
