@@ -1,0 +1,69 @@
+{{> header-auth}}
+<!-- Container -->
+<div class="container" id="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Sign Up -->
+        <div class="col align-center flex-col sign-up">
+        </div>
+        <!-- End Sign Up -->
+
+        <!-- Recuperación -->
+        <div class="col align-center flex-col sign-in">
+            <div class="form-wrapper align-center">
+                <form class="form sign-in formulario" id="formulario">
+
+                    <select name="pregunta" required id="pregunta" class="form-control input-group">
+                        <option value="" selected disabled hidden> - Elija una pregunta -</option>
+                        <option value="Pregunta 1">Pregunta 1</option>
+                        <option value="Pregunta 2">Pregunta 2</option>
+                        <option value="Pregunta 3">Pregunta 3</option>
+                    </select>
+
+                    <div class="input-group formulario__grupo" id="grupo__usuario">
+                        <i class="fas fa-question"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="usuario" id="usuario"
+                                placeholder="Respuesta" onkeyup="myFunction()" />
+                        </div>
+                        <p class="formulario__input-error">La respuesta contener de 4 a 50 dígitos y solo puede
+                            contener números, letras y guion bajo.</p>
+                    </div>
+
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                            correctamente. </p>
+                    </div>
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                    </div>
+                </form>
+                <!-- End form -->
+            </div>
+
+        </div>
+        <!-- End Recuperación -->
+    </div>
+    <!-- End Row -->
+    <!-- Content Section -->
+    <div class="row content-row">
+        <!-- Recuperación Content -->
+        <div class="col align-items flex-col">
+            <div class="text sign-in">
+                <h2>Olvidaste tu contraseña?</h2>
+                <!-- <p>
+                        <b>Recuperala aquí</b>
+                    </p> -->
+            </div>
+            <div class="img sign-in">
+                <img src="../img/preguntas.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+
+{{!-- Scripts validación --}}
+<script src="../js/validacion_recuperar.js"></script>
+{{> footer-auth}}

@@ -1,0 +1,64 @@
+{{> header-auth}}
+<!-- Container -->
+<div class="container" id="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Sign Up -->
+        <div class="col align-center flex-col sign-up">
+        </div>
+        <!-- End Sign Up -->
+
+        <!-- Recuperación -->
+        <div class="col align-center flex-col sign-in">
+            <div class="form-wrapper align-center">
+                <form class="form sign-in formulario" id="formulario">
+
+                    <div class="input-group formulario__grupo" id="grupo__correo">
+                        <i class="fas fa-envelope"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="email" class="formulario__input" placeholder="Correo" name="correo" id="correo"
+                                onkeyup="myFunction()" required />
+
+                        </div>
+                        <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos,
+                            guiones y guion bajo.</p>
+                    </div>
+
+                    <div class="formulario__mensaje" id="formulario__mensaje">
+                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                            correctamente. </p>
+                    </div>
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                    </div>
+
+                </form>
+                <!-- End form -->
+            </div>
+
+        </div>
+        <!-- End Recuperación -->
+    </div>
+    <!-- End Row -->
+    <!-- Content Section -->
+    <div class="row content-row">
+        <!-- Recuperación Content -->
+        <div class="col align-items flex-col">
+            <div class="text sign-in">
+                <h2>Olvidaste tu contraseña?</h2>
+                <p>
+                    <b>Recuperala aquí</b>
+                </p>
+            </div>
+            <div class="img sign-in">
+                <img style="width: 400px;" src="../img/correo.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+
+{{!-- Scripts validación --}}
+<script src="../js/validacion_recuperar.js"></script>
+{{> footer-auth}}
