@@ -11,27 +11,21 @@
         <!-- Recuperación -->
         <div class="col align-center flex-col sign-in">
             <div class="form-wrapper align-center">
-                <div class="form sign-in">
-                    <div class="input-group">
-                        <i class="bx bx-mail-send"></i>
-                        <input type="email" placeholder="Correo" />
+                <form class="form sign-in formulario" id="formulario">
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Recuperar via correo electrónico</button>
                     </div>
-                    <select name="rol" required class="form-control input-group">
-                        <option value="" selected disabled hidden> - Elija una pregunta -</option>
-                        <option value="Pregunta 1">Pregunta 1</option>
-                        <option value="Pregunta 2">Pregunta 2</option>
-                        <option value="Pregunta 3">Pregunta 3</option>
-                    </select>
-                    <div class="input-group">
-                        <i class='bx bxs-book-content'></i>
-                        <input type="text" placeholder="Respuesta" />
+                    <br>
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Recuperar via preguntas secretas</button>
                     </div>
-                    <button>Enviar</button>
+
                     <p>
-                        <span> Deseas iniciar sesión? </span>
-                        <b id="sign-up"><a href="/auth/login">Iniciar sesión aquí</a></b>
+                        <b id="sign-up"><a href="login.html">Regresar al login</a></b>
                     </p>
-                </div>
+                </form>
+                <!-- End form -->
             </div>
 
         </div>
@@ -44,9 +38,6 @@
         <div class="col align-items flex-col">
             <div class="text sign-in">
                 <h2>Olvidaste tu contraseña?</h2>
-                {{!-- <p>
-                    <b>Recuperala aquí</b>
-                </p> --}}
             </div>
             <div class="img sign-in">
                 <img src="../img/security.svg" alt="" />
