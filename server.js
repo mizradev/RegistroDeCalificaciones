@@ -23,7 +23,12 @@ app.set('port', process.env.PORT || 3000);
 
 //Middlewares
 app.use(express.json({extended: true}));
-
+app.use((error, req, res, next)=>{
+    res.status(400).json({
+        status:'error',
+        message: error.message,
+    })
+});
 //Routes pages
 app.use('/', require('./src/frontend/routes'));
 // Route api

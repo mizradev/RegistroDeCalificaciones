@@ -1,6 +1,6 @@
 //Llamado de los procedimientos almacenados de modulo ticket
 const mysqlConnection = require('../../../config/db');
-
+const validations = require('../validations/validation');
 //consulta de mensaje nuevo
 exports.mensajeNuevo = async(req, res)=>{
     const {id} = req.params;
@@ -27,6 +27,7 @@ exports.verMensajes=async(req, res)=>{
 
 //insertar mensaje
 exports.insertMensaje= async(req,res)=>{
+    validations.insertMjsValidation(req.body);
     const {descripcion,almacenamiento,person1,person2,asig} = req.body;
     const query = `CALL sp_instertTicket(?,?,?,?,?);`;
     //person1  envia el mensaje 

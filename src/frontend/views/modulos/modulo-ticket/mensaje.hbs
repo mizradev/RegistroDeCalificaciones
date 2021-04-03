@@ -1,116 +1,210 @@
-<div class="container-fluid">
-
-    <div class="container-fluid">
-        <!-- Page Heading -->
-        <h3 class="m-0 font-weight-bold text-Grey"> Mensaje  <i class="fas fa-inbox"></i></h3>
-        <br>
-                        <!-- DataTales Example -->
-                        <div class="card shadow  mb-11" >
-                            <div class="card-header py-3" >
-                                 <a class="btn btn-info" href="index2.html"><i class="fa fa-reply"></i></a>
-                            </div>   
-                        <div class="row " >
-                            </div>
-                            <div class="card-body  ">
-                                <div class="table-responsive" >
-                                    <table class="table table-bordered" id="dataTable" width="90%" cellspacing="0" >
-                                        
-                                             <thead>
-                                            <tr>
-                                                 <th>Mensaje</th>
-                                                    <th>Accion</th>
-                                                
-                                                
-                                            </tr>
-                                        </thead>
-                                            
-                                           <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a class="dropdown-item d-flex align-items-center" data-toggle="modal" href="#Modal3"onclik="">
-                                                        <div class="col-lg-1" >
-                                                           <img class="img-profile rounded-circle" src=""
-                                                                alt="">
-                                                            
-                                                        </div>
-                                                        <div>
-                                                            <div class="small text-gray-500" >fecha</div>
-                                                            <div class="text-truncate" ></div>
-                                                            <div class="small text-gray-500" >Nombre  </div>
-                                                        </div>
-                                                    </a>
-                                                </td>
-                                                 <td><button type="submit"  style="margin: 10px" href="#delete"  data-toggle="modal"class="btn btn-danger"><i class="far fa-trash-alt"></i>
-                                                        </button></td>
-                                            </tr>  
-                                           
-                                               
-                                       
-                                     
-                                    </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                          
-                        </div>
-                      </div>        
-                    
-                    </div>
-            
-
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Mensajes</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Mensaje</li>
+            </ol>
+          </div>
         </div>
-</div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-    
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Mensajes</h3>
 
-  
+              <div class="card-tools">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" placeholder="buscar...">
+                  <div class="input-group-append">
+                    <div class="btn btn-primary">
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-tools -->
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="fas fa-sync-alt"></i>
+                </button>
+                  <a href="/mensajeNuevo" class="btn btn-default btn-sm">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                <div class="float-right"><!--contador de mensajes-->
+                  1-50/200
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+              <div class="table-responsive mailbox-messages">
+                <table class="table table-hover table-striped">
 
-   
+                  <tbody>
 
-    <!-- Modal para contestar mensaje-->
+                  <tr>
+                    <td>
+                      <div class="icheck-primary">
+                        <input type="checkbox" value="" id="check1">
+                        <label for="check1"></label>
+                      </div>
+                    </td>
+                    <td class="mailbox-star"><a href="#"></a></td>
+                    <td class="mailbox-name"><a data-toggle="modal" href="#Modal3"onclik="">Alexander Pierce</a></td>
+                    <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
+                    </td>
+                    <td class="mailbox-attachment"></td>
+                    <td class="mailbox-date">5 mins ago</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="icheck-primary">
+                        <input type="checkbox" value="" id="check2">
+                        <label for="check2"></label>
+                      </div>
+                    </td>
+                    <td class="mailbox-star"></a></td>
+                    <td class="mailbox-name"><a  data-toggle="modal" href="#Modal3"onclik=>Kevin Santos</a></td>
+                    <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
+                    </td>
+                    <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                    <td class="mailbox-date">28 mins ago</td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <div class="icheck-primary">
+                        <input type="checkbox" value="" id="check3">
+                        <label for="check3"></label>
+                      </div>
+                    </td>
+                    <td class="mailbox-star"><a href="#"></a></td>
+                    <td class="mailbox-name"><a  data-toggle="modal" href="#Modal3"onclik=>Sharon Irias</a></td>
+                    <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
+                    </td>
+                    <td class="mailbox-attachment"><i class="fas fa-paperclip"></i></td>
+                    <td class="mailbox-date">11 hours ago</td>
+                  </tr>
+
+                  </tbody>
+                </table>
+                <!-- /.table -->
+              </div>
+              <!-- /.mail-box-messages -->
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer p-0">
+              <div class="mailbox-controls">
+                <!-- Check all button -->
+                <button type="button" class="btn btn-default btn-sm checkbox-toggle">
+                  <i class="far fa-square"></i>
+                </button>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default btn-sm">
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </div>
+                <!-- /.btn-group -->
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="fas fa-sync-alt"></i>
+                </button>
+                <div class="float-right">
+                  1-50/200
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-sm">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                  <!-- /.btn-group -->
+                </div>
+                <!-- /.float-right -->
+              </div>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+
+  <!-- /.content-wrapper -->       
 
 
+<!-- Modal para contestar mensaje-->
 
 <div id="Modal3" class="modal fade">
   <div class="modal-dialog">
-    <div class="modal-content">
-         
-
-      <form>
+    <div class="modal-content">   
         <div class="modal-header">            
           <h5 class="modal-title text-black">Nombre </h5>
             <div class="col-lg-2" >
-                   <img class="" alt="">
-             </div>
-        </div>
-        
-        <div class="modal-body">
-                    
-             <div class="text-truncate text-black" style="margin: 20px">mensaje</div>
-
-          <div class="form-group"  style="margin: 10px">
-           
-            <input type="email" placeholder="Escribe un mensaje" class="form-control" required>
-          </div>
-          <form>
-            <div class="form-group" style="margin: 10px">
-              <label for="exampleFormControlFile1"></label>
-              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+              <img src="" alt="">
             </div>
-          </form>
-                   
         </div>
-        <div class="modal-footer">
-         <button type="submit" class="btn btn-info" data-dismiss="modal"  ><i class="fas fa-paper-plane"> Enviar </i>
-            </button>
-
-            <button type="submit" class="btn btn-danger" data-dismiss="modal"  ><i class="fas fa-ban" > Cancelar </i>
-            </button>
         
-   
-        </div>
-      </form>
+      <div class="modal-body">       
+         <!--Descripcion total del mensaje-->
+         <div class="text-truncate text-black" style="margin: 20px">Descripcion del mensaje<br>
+           alamacenamiento<br>
+           fecha<br>
+         </div>
+
+           <form action="#" method="post"  enctype="multipart/form-data">
+              <div class="form-group"  style="margin: 20px">
+                <input type="text" placeholder="Escribe un mensaje" class="form-control" required>
+              </div>
+              <div style="position: relative; left: 20px">
+                <label class="btn btn-info" for="my-file-selector">
+                 <input id="my-file-selector" type="file" style="display:none" 
+                 onchange="$('#upload-file-info').text(this.files[0].name)"> <i class="fa fa-cloud-upload"></i> Subir Archivo 
+                </label>
+                <span class='label label-info' id="upload-file-info"></span>
+              </div>
+              <div style="position: relative; left:20px ;">
+              <button type="submit" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-paper-plane"></i> Enviar</button>
+              </div>
+           </form>      
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger" data-dismiss="modal"  ><i class="fas fa-ban" > Cancelar </i>
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -132,8 +226,8 @@
                 <div class="modal-footer">
                     <a class="btn btn-info" href="Responder.html">Si</a>
                     <button class="btn btn-danger" type="submit" data-dismiss="modal">No</button>
-                    
                 </div>
             </div>
         </div>
     </div>
+

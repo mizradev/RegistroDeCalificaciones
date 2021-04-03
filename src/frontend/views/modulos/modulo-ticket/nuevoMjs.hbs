@@ -2,26 +2,54 @@
 <div class="container-fluid">
   <div class="container-fluid">
 <!-- Page Heading -->
-      <h3 class="m-0 font-weight-bold text-grey"> Nuevo mensaje  <i class="fas fa-comments"></i></h3>
-      <br>
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Nuevo Mensaje</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Mensaje</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+</section>
+
 <!-- DataTales Example -->
-    <div class="card shadow  " >
-      <div class="card-header py-3" >  
-        <div class="card-body  ">
-          <div class="table-responsive" >
-             <table class="table table-bordered" id="dataTable" width="90%" cellspacing="0" >                        
+<section class="content">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+              <h3 class="card-title">Nuevo Mensaje</h3>
+
+              <div class="card-tools">
+                <div class="input-group input-group-sm">
+                  <input type="text" class="form-control" placeholder="buscar...">
+                  <div class="input-group-append">
+                    <div class="btn btn-primary">
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <table class="table table-striped" id="dataTable" width="90%" cellspacing="0" >                        
                <thead>
+
                    <tr >
                       <th width="5%">Id</th>
                       <th>Nombre Completo</th>
                       <th width="10%">Rol</th>
                       <th>Asignatura</th>
-                      <th>Escribir / Responder</th>
-                                                    
+                      <th width="5%" >Escribir</th>                             
                    </tr>
+
                </thead>                             
                <tbody>
-                  <tr>
+                  <tr> 
                       <td></td>
                       <td></td>
                       <td></td>
@@ -29,54 +57,55 @@
                       <td>
                        <button type="submit"  style="margin: 5px" href="#Modal1"  data-toggle="modal"class="btn btn-warning"><i class="far fa-comment" ></i>
                        </button>
-                       <a href="#"><button type="submit" class="btn btn-success"><i class="fa fa-reply"></i> 
                       </td>                             
                   </tr>                                           
                </tbody>
              </table>
-           </div>
-          </div>
-       </div>                          
-      </div>
-    </div>                          
+         </div>
+    </div>
+  </div>                                 
 </div>
-               
+</section>               
     <!-- MODAL PARA ENVIAR MENSAJE-->
+
 
 <div id="Modal1" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form method="POST">
         <div class="modal-header">   
           <div class="col-lg-2" >
             <img class="rounded-circle" src=""alt="">
             <h5 class="modal-title text-black"> NOMBRE </h5>
           </div>   
         </div>
-      </form>
       <!--Cuerpo del modal-->
 <div class="modal-body"> 
-  <form>         
+  <form   action="#" method="post"  enctype="multipart/form-data">         
     <div class="form-group" style="margin: 20px">
-        <input type="text"  placeholder="Escribe un mensaje" class="form-control" required>
+        <input  type="text" name="mensaje" placeholder="Escribe un mensaje" class="form-control" required>
+         <div class="invalid-feedback">por favor llene este campo.</div>
     </div>
     <div style="position: relative; left: 20px">
-         <label class="btn btn-primary" for="my-file-selector">
-             <input id="my-file-selector" type="file" style="display:none" 
-              onchange="$('#upload-file-info').text(this.files[0].name)"> <i class="fa fa-cloud-upload"></i> Subir Archivo 
-         </label>
-          <span class='label label-info' id="upload-file-info"></span>
+      <label class="btn btn-info" for="my-file-selector">
+        <input id="my-file-selector" type="file" style="display:none" 
+        onchange="$('#upload-file-info').text(this.files[0].name)"> <i class="fa fa-cloud-upload"></i> Subir Archivo 
+      </label>
+      <span class='label label-info' id="upload-file-info"></span>
     </div>
+    <div style="position: relative; left:20px ;">
+      <button type="submit" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-paper-plane"></i> Enviar</button>
+    </div>
+  </form>
     </div>            
-  </form>                   
+                 
 
 <!--Pie del modal-->
 <div class="modal-footer">
-   <button type="submit" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-paper-plane"> Enviar </i>
-   </button>
-   <button type="submit" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-ban" > Cancelar </i>
+   <button type="submit" class="btn btn-danger" data-dismiss="modal"><i class="fas fa-ban"> Cancelar </i>
    </button>                 
 </div>
     </div>
   </div>
 </div>
+
+
