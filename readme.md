@@ -1,8 +1,14 @@
-# Sistema de Registro de Calificaciones
+# Sistema de Registro de Calificaciones v0.0.1 alpha
 Sistema desarrollado como proyecto para la clase de programación e implementación de sistemas
 
-### Instalar y ejecutar el proyecto
-- Clonar el repositorio con el siguiente comando
+### Índice
+- [Instalación y configuración base del sistema](https://github.com/soymizra/RegistroDeCalificaciones#instalar-y-ejecutar-el-proyecto)
+- Agregar endpoints al API (muy pronto)
+- Probar endpoints (muy pronto)
+- [Agregar pantallas a un módulo](https://github.com/soymizra/RegistroDeCalificaciones#agregar-pantallas-a-un-módulo)
+
+#### Instalación y configuración base del sistema
+- Clonar el repositorio con el siguiente comando:
     ``` git clone https://github.com/soymizra/RegistroDeCalificaciones.git ```
 
 
@@ -23,3 +29,7 @@ Sistema desarrollado como proyecto para la clase de programación e implementaci
 
 
 - Ejecutar el proyecto con el comando: ``` npm run dev ```
+
+#### Agregar pantallas a un módulo
+
+*Contenido en proceso de actualización... Espera un poco 😅*
