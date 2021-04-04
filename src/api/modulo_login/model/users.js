@@ -14,23 +14,23 @@ const getEmail = (pEmail) => {
 	});
 };
 
-// Obtener el rol
-// const getRol = (rEmail) => {
-//    return new Promise((resolve, reject) => {
-//       const query = 'SELECT descripcion_rol FROM usuarios INNER JOIN rol ON rol.id_rol = usuarios.id_rol Where usuarios.correo =  ?';
-//       const options = { sql: query, nestTables: true, values: [rEmail] };
-//       mysqlConnection.query(options, function (err, result) {
-//          if (err) {
-//             reject(err);
-//             console.log(err);
-//          } else {
-//             resolve(result[0].descripcion_rol);
-//          }
-//       });
-//    });
-// };
+// Obtener el usuario y rol por id
+const getRol = (rId) => {
+	return new Promise((resolve, reject) => {
+		const query = 'SELECT * FROM usuarios INNER JOIN rol ON rol.id_rol = usuarios.id_rol Where usuarios.id_usuario =  ?';
+		const options = { sql: query, nestTables: true, values: [rId] };
+		mysqlConnection.query(options, function (err, result) {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(result[0]);
+			}
+		});
+	});
+};
 
-// Obtener usuario
+// Obtener usuario por id
 const getUsuario = (id) => {
 	return new Promise((resolve, reject) => {
 		mysqlConnection.query(`SELECT * FROM usuarios WHERE id_usuario = ?`, [id], (err, user) => {
@@ -46,6 +46,6 @@ const getUsuario = (id) => {
 
 module.exports = {
 	getEmail,
-	//    getRol,
+	getRol,
 	getUsuario,
 };
