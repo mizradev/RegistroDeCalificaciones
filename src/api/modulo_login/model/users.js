@@ -1,25 +1,51 @@
 const mysqlConnection = require('../../../config/db');
 
-// exports.getUser = async (req, res) => {
-//    //    const { email, password, rol } = req.body;
+// Obtener usuario por correo
+const getEmail = (pEmail) => {
+	return new Promise((resolve, reject) => {
+		mysqlConnection.query(`SELECT * FROM usuarios WHERE correo = ?`, [pEmail], (err, row) => {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(row[0]);
+			}
+		});
+	});
+};
 
-//    const query = `Select * From usuarios`;
-
-//    try {
-//       const result = await mysqlConnection.query(query, []);
-//       return res.status(200).json(result);
-//    } catch (error) {
-//       console.log(error);
-//    }
-// };
-
-// module.exports = {
-//    getUser: (callBack) => {
-//       pool.query(`select correo, password, rol from usuarios`, [], (error, results, fields) => {
-//          if (error) {
-//             callBack(error);
+// Obtener el rol
+// const getRol = (rEmail) => {
+//    return new Promise((resolve, reject) => {
+//       const query = 'SELECT descripcion_rol FROM usuarios INNER JOIN rol ON rol.id_rol = usuarios.id_rol Where usuarios.correo =  ?';
+//       const options = { sql: query, nestTables: true, values: [rEmail] };
+//       mysqlConnection.query(options, function (err, result) {
+//          if (err) {
+//             reject(err);
+//             console.log(err);
+//          } else {
+//             resolve(result[0].descripcion_rol);
 //          }
-//          return callBack(null, results);
 //       });
-//    },
+//    });
 // };
+
+// Obtener usuario
+const getUsuario = (id) => {
+	return new Promise((resolve, reject) => {
+		mysqlConnection.query(`SELECT * FROM usuarios WHERE id_usuario = ?`, [id], (err, user) => {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(user[0]);
+			}
+		});
+	});
+};
+
+module.exports = {
+	getEmail,
+	//    getRol,
+	getUsuario,
+};
