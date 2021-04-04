@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const { request, response } = require('express');
-
 const user = require('../model/users');
 
 const validarJWT = async (req = request, res = response, next) => {
@@ -10,22 +9,26 @@ const validarJWT = async (req = request, res = response, next) => {
 	//    Si no viene el token
 	if (!token) {
 		return res.status(401).json({
-			error: 'No tiene autorización para realizar esta operación',
+			msg: 'No hay token en la petición',
 		});
 	}
 
 	//    validar jwt
 	try {
-		const payload = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+		const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
 
-		console.log(payload);
+		// Leer el usuario que corresponde uid
+		//   const usuario = await getId(uid);
 
-		// Si es correcto pasa al siguiente middleware
+		//   req.user = usuario;
+
+		console.log(uid);
+
 		next();
 	} catch (error) {
 		console.log(error);
 		res.status(401).json({
-			error: 'No tiene autorización',
+			msg: 'Token no valido',
 		});
 	}
 };

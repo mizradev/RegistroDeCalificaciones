@@ -27,7 +27,7 @@ router.get('/calificaciones', calificacionesCtrl.pantalla_inicio);
 
 // Rutas API modulo_login
 router.post('/api/auth/login', [check('correo', 'Debe ser un correo valido y es requerido').isEmail(), check('password', 'La contraseña debe contener al menos 4 dijitos y es requerido').isLength({ min: 4 }), validarCampos], login);
-router.get('/api/usuarios/:id', [validarJWT], user);
+router.get('/api/usuarios/:id', validarJWT, user);
 
 router.get('*', (req, res) => res.redirect('/'));
 module.exports = router;
