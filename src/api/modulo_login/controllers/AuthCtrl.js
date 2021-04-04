@@ -32,7 +32,7 @@ const login = async (req, res) => {
 		// Generar el token
 		const token = await generarJWT(usuario.id_usuario);
 
-		res.status(200).json({ usuario, message: 'Login ok', token: token });
+		res.status(200).json({ message: 'Login ok', token: token });
 	} catch (error) {
 		console.log(error);
 		return res.status(500).json({ error: 'Hable con el administrador' });
