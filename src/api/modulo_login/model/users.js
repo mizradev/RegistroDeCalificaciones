@@ -17,7 +17,7 @@ const getEmail = (pEmail) => {
 // Obtener el usuario y rol por id
 const getRol = (rId) => {
 	return new Promise((resolve, reject) => {
-		const query = 'SELECT * FROM usuarios INNER JOIN rol ON rol.id_rol = usuarios.id_rol Where usuarios.id_usuario =  ?';
+		const query = 'SELECT Id_usuario, user, correo, indicador_usuario, descripcion_rol FROM usuarios INNER JOIN rol ON rol.id_rol = usuarios.id_rol Where usuarios.id_usuario =  ?';
 		const options = { sql: query, nestTables: true, values: [rId] };
 		mysqlConnection.query(options, function (err, result) {
 			if (err) {
