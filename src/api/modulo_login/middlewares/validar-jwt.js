@@ -16,13 +16,17 @@ const validarJWT = async (req = request, res = response, next) => {
 	//    validar jwt
 	try {
 		const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+		// obtengo uid del token y lo guardo en la request
+		req.uid = uid;
+		console.log(uid);
 
 		// Leer el usuario que corresponde uid
-		//   const usuario = await getId(uid);
+		const usuario = await user.getRol(req.uid);
+		if (!usuario) return res.status(401).json({ msg: 'El usuario no existe' });
 
-		//   req.user = usuario;
+		req.usuario = usuario;
 
-		console.log(uid);
+		console.log(usuario);
 
 		next();
 	} catch (error) {

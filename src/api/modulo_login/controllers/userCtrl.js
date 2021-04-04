@@ -10,15 +10,17 @@ const user = async (req, res) => {
 	// const uid = req.uid;
 
 	try {
-		// Modelo de datos para validar email
-		// const usuarioautenticado = req.usuario;
+		// Modelo de datos para obtener el usuario por id
 		const userss = await users.getUsuario(id);
-		// const verify = await users.getUsuario(uid);
+
+		// Obtenemos usuario autenticado
+		const verify = await req.usuario;
+
 		if (!userss) {
 			return res.status(400).json({ msg: 'No existe usuario' });
 		}
 
-		return res.status(200).json({ userss });
+		return res.status(200).json({ userss, verify });
 	} catch (error) {
 		console.log(error);
 		return res.status(500).json({ msg: 'Hable con el administrador' });
