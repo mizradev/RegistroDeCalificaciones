@@ -23,6 +23,30 @@ const generarJWT = (uid, rol, estado) => {
 	});
 };
 
+const generarJwtPassword = (uid, user) => {
+	return new Promise((resolve, reject) => {
+		const payload = { uid, user };
+
+		//   Generar el token
+		jwt.sign(
+			payload,
+			process.env.SECRETORPRIVATEKEY,
+			{
+				expiresIn: '30m',
+			},
+			(err, token) => {
+				if (err) {
+					console.log(err);
+					reject('No se pudo generar el token');
+				} else {
+					resolve(token);
+				}
+			}
+		);
+	});
+};
+
 module.exports = {
 	generarJWT,
+	generarJwtPassword,
 };
