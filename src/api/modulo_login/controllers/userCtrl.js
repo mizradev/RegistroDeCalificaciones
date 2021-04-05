@@ -1,5 +1,4 @@
-// const bcryptjs = require('bcryptjs');
-// const { generarJWT } = require('../helpers/generar-jwt');
+const bcryptjs = require('bcryptjs');
 
 // importando las funciones del modelo usuarios
 const users = require('../model/users');
@@ -7,20 +6,15 @@ const users = require('../model/users');
 const user = async (req, res) => {
 	const { id } = req.params;
 
-	// const uid = req.uid;
-
 	try {
 		// Modelo de datos para obtener el usuario por id
 		const userss = await users.getUsuario(id);
-
-		// Obtenemos usuario autenticado
-		const verify = await req.usuario;
 
 		if (!userss) {
 			return res.status(400).json({ msg: 'No existe usuario' });
 		}
 
-		return res.status(200).json({ userss, verify });
+		return res.status(200).json({ userss });
 	} catch (error) {
 		console.log(error);
 		return res.status(500).json({ msg: 'Hable con el administrador' });
@@ -28,6 +22,35 @@ const user = async (req, res) => {
 	//    Fin try-catch
 };
 
+const userPost = async (req, res) => {
+	const id_rol = req.body.id_rol;
+	const user = req.body.user;
+	// const password = req.body.password;
+	const correo = req.body.correo;
+	const token_password = req.body.token_password;
+	const token_expiracion = req.body.token_expiracion;
+	const indicador_usuario = req.body.indicador_usuario;
+	const usr_registro = req.body.usr_registro;
+	const fecha_registro = req.body.fecha_registro;
+
+	try {
+		const salt = bcryptjs.genSaltSync();
+		const password = bcryptjs.hashSync(req.body.password, salt);
+
+		const usuario = await users.postUsuario(id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro, fecha_registro);
+
+		if (!usuario) {
+			return res.status(400).json({ message: 'No se pudo crear el usuario' });
+		}
+
+		res.status(200).json({ message: 'Usuario creado', usuario });
+	} catch (error) {
+		console.log(error);
+		return res.status(500).json({ message: 'Hable con el administrador' });
+	}
+};
+
 module.exports = {
 	user,
+	userPost,
 };
