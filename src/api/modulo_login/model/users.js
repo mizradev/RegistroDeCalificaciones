@@ -44,8 +44,23 @@ const getUsuario = (id) => {
 	});
 };
 
+// crear usuario prueba
+const postUsuario = (id_usuario, id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro, fecha_registro) => {
+	return new Promise((resolve, reject) => {
+		mysqlConnection.query(`INSERT INTO usuarios (id_usuario, id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro, fecha_registro) VALUES (?, ?, ?, ?, ?, ?)`, [id_usuario, id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro, fecha_registro], (err, usuario) => {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(usuario[0]);
+			}
+		});
+	});
+};
+
 module.exports = {
 	getEmail,
 	getRol,
 	getUsuario,
+	postUsuario,
 };
