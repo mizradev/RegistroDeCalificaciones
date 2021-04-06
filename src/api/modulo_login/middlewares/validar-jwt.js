@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const authToken = function (req, res, next) {
-	if (req.path != '/api/auth/login') {
+	if (req.path != '/api/auth/login' && req.path != '/api/auth/recuperarContrasenia' && req.path != '/api/auth/nuevaContrasenia') {
 		if (req.headers.authorization) {
 			let token = req.headers.authorization.split(' ')[1];
 
@@ -12,7 +12,7 @@ const authToken = function (req, res, next) {
 				next();
 				if (req.method != 'GET') {
 					// console.log(decode.rol);
-					if (decoded.rol === 9) next();
+					if (decoded.rol === 1) next();
 					else res.status(401).send({ message: 'No tienes los permisos suficientes para estar aquí... rol' });
 				} else {
 					next();
