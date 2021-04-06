@@ -31,13 +31,13 @@ const userPost = async (req, res) => {
 	const token_expiracion = req.body.token_expiracion;
 	const indicador_usuario = req.body.indicador_usuario;
 	const usr_registro = req.body.usr_registro;
-	const fecha_registro = req.body.fecha_registro;
+	// const fecha_registro = req.body.fecha_registro;
 
 	try {
 		const salt = bcryptjs.genSaltSync();
 		const password = bcryptjs.hashSync(req.body.password, salt);
 
-		const usuario = await users.postUsuario(id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro, fecha_registro);
+		const usuario = await users.postUsuario(id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro);
 
 		if (!usuario) {
 			return res.status(400).json({ message: 'No se pudo crear el usuario' });
