@@ -3,14 +3,11 @@ const bcryptjs = require('bcryptjs');
 
 const { getEmail, postToken, getUsuario, postPassword, limpiarToken } = require('../model/users');
 const { generarJWT, generarJwtPassword } = require('../helpers/generar-jwt');
+const transporter = require('../config/meiler');
 
 const login = async (req, res) => {
 	const correo = req.body.correo;
 	const password = req.body.password;
-	//    encriptar
-	//    const salt = bcryptjs.genSaltSync();
-	//    const password1 = bcryptjs.hashSync(password, salt);
-	//    console.log(password1);
 
 	try {
 		// Modelo de datos de usuario
@@ -48,11 +45,10 @@ const recuperarPassword = async (req, res) => {
 
 	const message = 'Revise su correo electrónico que contiene el enlace para restablecer su contraseña';
 	let verificarLink;
-	let emailStatus = 'OK';
-
+	let usuario;
 	try {
 		// Modelo de datos de usuario
-		const usuario = await getEmail(correo);
+		usuario = await getEmail(correo);
 
 		// Verificar si el correo existe
 		if (usuario === undefined) {
@@ -74,14 +70,39 @@ const recuperarPassword = async (req, res) => {
 		// Guardar el token en la Base de Datos
 		await postToken(verificarLink, usuario.id_usuario);
 
-		res.status(200).json({ message: message, status: emailStatus, url: verificarLink });
+		res.status(200).json({ message: message, url: verificarLink });
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({ message: 'Este usuario no existe' });
+		return res.status(500).json({ message: 'Hable con el Administrador' });
 	}
 	//    Fin try-catch
 
-	//  TODO: enviar email
+	try {
+		// Enviamos el email
+		await transporter.sendMail({
+			from: '"Cambiar Credenciales " <encoders@gmail.com>',
+			to: usuario.correo,
+			subject: 'Cambiar Credenciales',
+			text: 'Hello world?',
+			html: ` 
+            <center>
+                <img src='https://images.vexels.com/media/users/3/131263/isolated/preview/af6816ec67ec51da6b275a4aa08d236c-icono-de-c-iacute-rculo-de-bloqueo-by-vexels.png'
+                    width='150px' heigth='150px'>
+                <h1 style='font-size:30px; color:black;'>Cambio de Credenciales</h1>
+                <h3 style='font-size:20px; color:black;'><strong>¿Has solicitado cambio de contraseña?</strong></h3>
+                <h3><a style="background-color: #007bff; padding: 10px; border-radius: 5px; color: white; text-decoration: none;"
+                        href='${verificarLink}'>INGRESAR
+                        AQUÍ</a></h3>
+                <h4 style='color:black;'>Si no requieres cambio de contraseña o no has sido quien lo ha
+                    solicitado,<br>simplemente
+                    ignora este mensaje!</h4>
+                <h4>Contacto: Perla Casco, Directora Ejecutiva<br>#: (+504)2283-0967 | (+504)8824-2342</h4>
+            </center>`,
+		});
+	} catch (error) {
+		console.log(error);
+		return res.status(500).json({ message: 'Hable con el Administrador' });
+	}
 };
 
 const newPassword = async (req, res) => {
@@ -91,12 +112,11 @@ const newPassword = async (req, res) => {
 	}
 	const password = req.body.password;
 	const resetToken = req.headers.authorization.split(' ')[1];
-	// console.log(resetToken);
 
 	try {
 		// Verificar el token del url y extraer el uid
 		const { uid } = jwt.verify(resetToken, process.env.SECRETKEYRESETPASSWOR);
-		console.log(uid);
+
 		if (!uid) {
 			return res.status(400).json({ message: 'El usuario no existe' });
 		}
@@ -124,12 +144,12 @@ const newPassword = async (req, res) => {
 		// Encriptar la nueva contraseña
 		const salt = bcryptjs.genSaltSync();
 		const newPassword = bcryptjs.hashSync(password, salt);
-		console.log(newPassword);
+		// console.log(newPassword);
 
 		// Guardar la nueva contraseña en la BD
 		await postPassword(newPassword, usuario.id_usuario);
 
-		// Limpiamos el token_password de laBD
+		// Limpiamos el token_password de la BD
 		const token = null;
 		await limpiarToken(token, usuario.id_usuario);
 
