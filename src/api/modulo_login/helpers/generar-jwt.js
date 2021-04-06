@@ -30,7 +30,7 @@ const generarJwtPassword = (uid, user) => {
 		//   Generar el token
 		jwt.sign(
 			payload,
-			process.env.SECRETORPRIVATEKEY,
+			process.env.SECRETKEYRESETPASSWOR,
 			{
 				expiresIn: '30m',
 			},
