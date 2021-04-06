@@ -1,5 +1,6 @@
 const mysqlConnection = require('../../../config/db');
 
-exports.obtenerNotasPorIdAlumno = (req, res) => {}
+exports.obtenerNotasPorAlumno = (req, res) => {}
 
-exports.registrarActividad = (req, res) => {}
+exports.obtenerAlumnosPorAsignaturaDocente = (req, res) => {}
+
