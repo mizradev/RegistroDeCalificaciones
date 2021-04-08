@@ -86,7 +86,7 @@ const recuperarPassword = async (req, res) => {
 			text: 'Hello world?',
 			html: ` 
             <center>
-                <img src='https://images.vexels.com/media/users/3/131263/isolated/preview/af6816ec67ec51da6b275a4aa08d236c-icono-de-c-iacute-rculo-de-bloqueo-by-vexels.png'
+                <img src='https://cdn.icon-icons.com/icons2/2072/PNG/512/internet_lock_locked_padlock_password_secure_security_icon_127100.png'
                     width='150px' heigth='150px'>
                 <h1 style='font-size:30px; color:black;'>Cambio de Credenciales</h1>
                 <h3 style='font-size:20px; color:black;'><strong>¿Has solicitado cambio de contraseña?</strong></h3>
