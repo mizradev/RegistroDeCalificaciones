@@ -23,9 +23,9 @@ const generarJWT = (uid, rol, estado) => {
 	});
 };
 
-const generarJwtPassword = (uid, user) => {
+const generarJwtPassword = (uid, user, estado) => {
 	return new Promise((resolve, reject) => {
-		const payload = { uid, user };
+		const payload = { uid, user, estado };
 
 		//   Generar el token
 		jwt.sign(
