@@ -8,7 +8,8 @@ const calificacionesCtrl = require('../controllers/registro_calificaciones/ModRe
 
 // Controlador modulo login
 const { login, recuperarPassword, newPassword } = require('../../api/modulo_login/controllers/AuthCtrl');
-const { user, userPost } = require('../../api/modulo_login/controllers/userCtrl');
+const { user } = require('../../api/modulo_login/controllers/userCtrl');
+const { preguntas } = require('../../api/modulo_login/controllers/preguntasCtrl');
 
 // Middlewares modulo login
 const { validarJWT } = require('../../api/modulo_login/middlewares/validar-jwt');
@@ -39,7 +40,8 @@ router.put('/api/auth/nuevaContrasenia/:token', [check('password', 'La contrase�
 // Ruta para probar los middlewares
 router.get('/api/usuarios/:id', [validarJWT, esAdminRole, tieneRol(1, 3)], user);
 
-router.post('/api/usuarios', [check('correo', 'El correo es obligatorio').isEmail(), check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], userPost);
+// ruta insertar preguntas
+router.post('/api/preguntas/:token', [check('respuesta1', 'La respuesta es obligatoria').not().isEmpty(), check('respuesta2', 'La respuesta es obligatoria').not().isEmpty(), validarCampos], preguntas);
 
 router.get('*', (req, res) => res.redirect('/'));
 module.exports = router;
