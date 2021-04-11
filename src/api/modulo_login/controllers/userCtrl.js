@@ -10,11 +10,11 @@ const user = async (req, res) => {
 		// Modelo de datos para obtener el usuario por id
 		const userss = await users.getUsuario(id);
 
+		res.status(200).json(userss);
+
 		if (!userss) {
 			return res.status(400).json({ msg: 'No existe usuario' });
 		}
-
-		return res.status(200).json({ userss });
 	} catch (error) {
 		console.log(error);
 		return res.status(500).json({ msg: 'Hable con el administrador' });
