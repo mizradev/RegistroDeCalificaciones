@@ -61,7 +61,7 @@ const recuperarPassword = async (req, res) => {
 		}
 
 		// // Generar el token
-		const token = await generarJwtPassword(usuario.id_usuario, usuario.user);
+		const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
 
 		// Generar la url para actualizar la contraseña
 		verificarLink = `http://${req.headers.host}/auth/new_password/${token}`;
