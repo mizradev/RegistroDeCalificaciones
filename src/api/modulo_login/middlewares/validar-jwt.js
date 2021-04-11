@@ -1,27 +1,42 @@
+const { response, request } = require('express');
 const jwt = require('jsonwebtoken');
+const { getUsuario } = require('../model/users');
 
-const authToken = function (req, res, next) {
-	if (req.path != '/api/auth/login' && req.path != '/api/auth/recuperarContrasenia' && req.path != '/api/auth/nuevaContrasenia') {
-		if (req.headers.authorization) {
-			let token = req.headers.authorization.split(' ')[1];
+const validarJWT = async (req = request, res = response, next) => {
+	const authorization = req.headers.authorization;
 
-			jwt.verify(token, process.env.SECRETORPRIVATEKEY, function (error, decoded) {
-				if (error) return res.status(401).send({ message: 'No tienes los permisos suficientes para estar aquí...', error });
+	// Verificar que el token exista
+	if (!authorization) {
+		res.status(401).send({ message: 'Acceso denegado' });
+	}
 
-				if (decoded.estado !== 'activo') return res.status(401).send({ message: 'No existe este usuario', error });
-				next();
-				if (req.method != 'GET') {
-					// console.log(decode.rol);
-					if (decoded.rol === 1) next();
-					else res.status(401).send({ message: 'No tienes los permisos suficientes para estar aquí... rol' });
-				} else {
-					next();
-				}
-			});
-		} else res.status(401).send({ message: 'No tienes los permisos suficientes para estar aquí...' });
-	} else next();
+	const token = authorization.split(' ')[1];
+
+	try {
+		const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
+		// console.log(uid, estado);
+
+		// Consultar si el usuario existe en la base de datos
+		const usuario = await getUsuario(uid);
+		if (!usuario) {
+			return res.status(401).send({ message: 'Token no valido, no existe este usuario' });
+		}
+
+		// Verificar que el usuario este activo
+		if (usuario.indicador_usuario !== 'activo') {
+			return res.status(401).send({ message: 'No existe este usuario' });
+		}
+		req.usuario = usuario;
+
+		next();
+	} catch (error) {
+		console.log(error);
+		res.status(401).json({
+			msg: 'No tienes autorización',
+		});
+	}
 };
 
 module.exports = {
-	authToken,
+	validarJWT,
 };
