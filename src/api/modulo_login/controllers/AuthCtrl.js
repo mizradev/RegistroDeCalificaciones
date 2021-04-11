@@ -64,11 +64,11 @@ const recuperarPassword = async (req, res) => {
 		const token = await generarJwtPassword(usuario.id_usuario, usuario.user);
 
 		// Generar la url para actualizar la contraseña
-		verificarLink = `http://${req.headers.host}/api/auth/nuevaContrasenia/${token}`;
-		console.log(verificarLink);
+		verificarLink = `http://${req.headers.host}/auth/new_password/${token}`;
+		// console.log(verificarLink);
 
 		// Guardar el token en la Base de Datos
-		await postToken(verificarLink, usuario.id_usuario);
+		await postToken(token, usuario.id_usuario);
 
 		res.status(200).json({ message: message, url: verificarLink });
 	} catch (error) {
