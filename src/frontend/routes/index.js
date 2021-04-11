@@ -33,7 +33,8 @@ router.post('/api/auth/login', [check('correo', 'Debe ser un correo valido y es 
 router.get('/api/auth/recuperarContrasenia', [check('correo', 'Debe ser un correo valido y es requerido').isEmail(), validarCampos], recuperarPassword);
 
 // Ruta para crear la nueva contraseña
-router.put('/api/auth/nuevaContrasenia', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword);
+router.put('/api/auth/nuevaContrasenia/:token', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword);
+// router.put('/api/auth/nuevaContrasenia', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword);
 
 // Ruta para probar los middlewares
 router.get('/api/usuarios/:id', [validarJWT, esAdminRole, tieneRol(1, 3)], user);
