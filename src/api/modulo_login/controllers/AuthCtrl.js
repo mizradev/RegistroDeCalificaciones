@@ -15,18 +15,18 @@ const login = async (req, res) => {
 
 		// Verificar si el correo existe
 		if (usuario === undefined) {
-			return res.status(400).json({ error: 'El usuario o la contraseña son invalidos' });
+			return res.status(400).json({ message: 'El usuario o la contraseña son invalidos' });
 		}
 
 		// Si el usuario esta activo
 		if (usuario.indicador_usuario !== 'activo') {
-			return res.status(400).json({ error: `El usuario con este email: ${correo} no existe!!` });
+			return res.status(400).json({ message: `El usuario con este email: ${correo} no existe!!` });
 		}
 
 		// Verificar la contraseña
 		const validarPassword = bcryptjs.compareSync(password, usuario.password);
 		if (!validarPassword) {
-			return res.status(400).json({ error: 'El usuario o la contraseña son invalidos' });
+			return res.status(400).json({ message: 'El usuario o la contraseña son invalidos' });
 		}
 
 		// Generar el token
@@ -35,7 +35,7 @@ const login = async (req, res) => {
 		res.status(200).json({ message: 'Inicio de sesión correcto', token: token });
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({ error: 'Hable con el administrador' });
+		return res.status(500).json({ message: 'Hable con el administrador' });
 	}
 	//    Fin try-catch
 };
@@ -52,12 +52,12 @@ const recuperarPassword = async (req, res) => {
 
 		// Verificar si el correo existe
 		if (usuario === undefined) {
-			return res.status(400).json({ error: 'El usuario es incorrecto' });
+			return res.status(400).json({ message: 'El usuario es incorrecto' });
 		}
 
 		// Si el usuario esta activo
 		if (usuario.indicador_usuario !== 'activo') {
-			return res.status(400).json({ error: `El usuario con este email: ${correo} no existe!!` });
+			return res.status(400).json({ message: `El usuario con este email: ${correo} no existe!!` });
 		}
 
 		// // Generar el token
@@ -117,7 +117,7 @@ const newPassword = async (req, res) => {
 	try {
 		// Verificar el token del url y extraer el uid
 		const { uid } = jwt.verify(token, process.env.SECRETKEYRESETPASSWOR);
-		console.log(uid);
+
 		if (!uid) {
 			return res.status(400).json({ message: 'El usuario no existe' });
 		}
@@ -130,21 +130,21 @@ const newPassword = async (req, res) => {
 		// Verificamos si existe el token en la BD
 		if (!usuario.token_password) {
 			return res.status(401).json({
-				msg: 'No tienes autorización para estar aqui!!',
+				message: 'No tienes autorización para estar aqui!!',
 			});
 		}
 
 		// verificar que el token de la ruta sea igual al de la base de datos
 		if (token !== usuario.token_password) {
 			return res.status(401).json({
-				msg: 'No tienes autorización para estar aqui!!',
+				message: 'No tienes autorización para estar aqui!!',
 			});
 		}
 
 		// Verificar si el uid tiene estado act
 		if (usuario.indicador_usuario !== 'activo') {
 			return res.status(401).json({
-				msg: 'El usuario no existe',
+				message: 'El usuario no existe',
 			});
 		}
 
@@ -163,7 +163,7 @@ const newPassword = async (req, res) => {
 		res.status(200).json({ message: 'Contraseña restablecida correctamente' });
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({ error: 'Hable con el administrador' });
+		return res.status(500).json({ message: 'Hable con el administrador' });
 	}
 	//    Fin try-catch
 };
