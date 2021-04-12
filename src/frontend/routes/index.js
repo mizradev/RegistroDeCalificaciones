@@ -2,14 +2,14 @@ const express = require('express');
 const { check } = require('express-validator');
 const router = express.Router();
 
-// controllers
+// controllers vistas
 const authCtrl = require('../controllers/auth/AuthCtrl');
 const calificacionesCtrl = require('../controllers/registro_calificaciones/ModRegistroCalificacionesCtrl');
 
-// Controlador modulo login
+// Controladores modulo login
 const { login, recuperarPassword, newPassword } = require('../../api/modulo_login/controllers/AuthCtrl');
 const { user } = require('../../api/modulo_login/controllers/userCtrl');
-const { preguntas } = require('../../api/modulo_login/controllers/preguntasCtrl');
+const { preguntas, getAllPreguntas } = require('../../api/modulo_login/controllers/preguntasCtrl');
 
 // Middlewares modulo login
 const { validarJWT } = require('../../api/modulo_login/middlewares/validar-jwt');
@@ -42,6 +42,8 @@ router.get('/api/usuarios/:id', [validarJWT, esAdminRole, tieneRol(1, 3)], user)
 
 // ruta insertar preguntas
 router.post('/api/preguntas/:token', [check('respuesta1', 'La respuesta es obligatoria').not().isEmpty(), check('respuesta2', 'La respuesta es obligatoria').not().isEmpty(), validarCampos], preguntas);
+
+router.get('/api/preguntas', getAllPreguntas);
 
 router.get('*', (req, res) => res.redirect('/'));
 module.exports = router;
