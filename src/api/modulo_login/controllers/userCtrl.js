@@ -11,11 +11,11 @@ const user = async (req, res) => {
 		res.status(200).json(userss);
 
 		if (!userss) {
-			return res.status(400).json({ msg: 'No existe usuario' });
+			return res.status(400).json({ message: 'No existe usuario' });
 		}
 	} catch (error) {
 		console.log(error);
-		return res.status(500).json({ msg: 'Hable con el administrador' });
+		return res.status(500).json({ message: 'Hable con el administrador' });
 	}
 	//    Fin try-catch
 };
