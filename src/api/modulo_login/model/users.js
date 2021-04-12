@@ -14,22 +14,6 @@ const getEmail = (pEmail) => {
 	});
 };
 
-// Obtener el usuario y rol por id
-const getRol = (rId) => {
-	return new Promise((resolve, reject) => {
-		const query = 'SELECT Id_usuario, user, correo, indicador_usuario, descripcion_rol FROM usuarios INNER JOIN rol ON rol.id_rol = usuarios.id_rol Where usuarios.id_usuario =  ?';
-		const options = { sql: query, nestTables: true, values: [rId] };
-		mysqlConnection.query(options, function (err, result) {
-			if (err) {
-				reject(err);
-				console.log(err);
-			} else {
-				resolve(result[0]);
-			}
-		});
-	});
-};
-
 // Obtener usuario por id
 const getUsuario = (id) => {
 	return new Promise((resolve, reject) => {
@@ -39,20 +23,6 @@ const getUsuario = (id) => {
 				console.log(err);
 			} else {
 				resolve(user[0]);
-			}
-		});
-	});
-};
-
-// crear usuario prueba
-const postUsuario = (id_usuario, id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro) => {
-	return new Promise((resolve, reject) => {
-		mysqlConnection.query(`INSERT INTO usuarios (id_usuario, id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`, [id_usuario, id_rol, user, password, correo, token_password, token_expiracion, indicador_usuario, usr_registro], (err, usuario) => {
-			if (err) {
-				reject(err);
-				console.log(err);
-			} else {
-				resolve(usuario[0]);
 			}
 		});
 	});
@@ -100,12 +70,55 @@ const limpiarToken = (id, token_password) => {
 	});
 };
 
+// Insertar respuestas por usuario
+const postRespuestas = (respuestas) => {
+	return new Promise((resolve, reject) => {
+		mysqlConnection.query('INSERT INTO respuestas_usuario SET ?', [respuestas], (err, resp) => {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(resp[0]);
+			}
+		});
+	});
+};
+
+// Limpiamos el token de las preguntas
+const tokenPreguntas = (id, token_preguntas) => {
+	return new Promise((resolve, reject) => {
+		mysqlConnection.query('UPDATE usuarios SET token_preguntas = ? WHERE usuarios.id_usuario = ?', [id, token_preguntas], (err, rows) => {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(rows[0]);
+			}
+		});
+	});
+};
+
+// Mostrar las preguntas
+const getPreguntas = () => {
+	return new Promise((resolve, reject) => {
+		mysqlConnection.query('SELECT * FROM preguntas_usuario', (err, responses) => {
+			if (err) {
+				reject(err);
+				console.log(err);
+			} else {
+				resolve(responses[0]);
+			}
+		});
+	});
+};
+
 module.exports = {
 	getEmail,
-	getRol,
 	getUsuario,
-	postUsuario,
 	postToken,
 	postPassword,
 	limpiarToken,
+	postRespuestas,
+	tokenPreguntas,
+	getPreguntas,
 };
