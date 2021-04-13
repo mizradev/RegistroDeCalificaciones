@@ -4,3 +4,10 @@ exports.pantalla_inicio = (req, res) => {
         registroCalificaciones: true
     })
 }
+
+exports.pantalla_2 = (req, res) => {
+    res.render('modulos/registro-calificaciones/pantalla2',{
+        nombrePagina: 'Pantalla de Prueba',
+        pantalla2: true,
+    })
+}
