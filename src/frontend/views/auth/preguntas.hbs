@@ -13,6 +13,17 @@
             <div class="form-wrapper align-center">
                 <form class="form sign-in formulario" id="formulario">
 
+                    <div class="input-group formulario__grupo" id="grupo__correo">
+                        <i class="fas fa-envelope"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="email" class="formulario__input" placeholder="Correo" name="correo" id="correo"
+                                onkeyup="myFunction()" required />
+
+                        </div>
+                        <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos,
+                            guiones y guion bajo.</p>
+                    </div>
+
                     <select name="pregunta" required id="pregunta" class="form-control input-group">
                         <option value="" selected disabled hidden> - Elija una pregunta -</option>
                         <option value="Pregunta 1">Pregunta 1</option>
