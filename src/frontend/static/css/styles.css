@@ -358,6 +358,9 @@ b#sign-in {
    margin-bottom: 0;
    display: none;
 }
+form p {
+   color: #f66060;
+}
 
 .formulario__input-error-activo {
    display: block;
