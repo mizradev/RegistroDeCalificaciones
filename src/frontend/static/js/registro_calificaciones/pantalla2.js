@@ -28,7 +28,8 @@
     });
 
     $('.btnEditarPuntaje').on('click', function () {
-        $('#modalEditarPuntaje').modal('show');
+        //$('#modalEditarPuntaje').modal('show');
+        toastr.success('Funciona! ');
     })
 
 })();
