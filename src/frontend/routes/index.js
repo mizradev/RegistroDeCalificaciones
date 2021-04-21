@@ -13,7 +13,7 @@ router.get('/auth/new_password', authCtrl.newPassword);
 router.get('/', authCtrl.pantalla_inicio);
 
 router.get('/calificaciones/', calificacionesCtrl.pantalla_inicio);
-router.get('/calificaciones/:id', calificacionesCtrl.pantalla_2);
+router.get('/calificaciones/alumno/:id', calificacionesCtrl.pantalla_2);
 // router.get('/calificaciones', require('./registro_calificaciones'));
 
 

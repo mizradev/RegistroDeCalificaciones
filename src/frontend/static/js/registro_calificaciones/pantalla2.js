@@ -25,6 +25,10 @@
             alert('Hay algo malo!');
         }
 
+    });
+
+    $('.btnEditarPuntaje').on('click', function () {
+        $('#modalEditarPuntaje').modal('show');
     })
 
 })();
