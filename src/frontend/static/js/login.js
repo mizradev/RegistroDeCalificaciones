@@ -11,13 +11,3 @@ const toggle = () => {
 };
 
 // signIn.addEventListener('click', toggle);
-
-// vlidacion mensaje
-function myFunction() {
-   let x = document.getElementsByClassName('formulario__mensaje-activo');
-   if (x.length >= 1) {
-      document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo2');
-   } else {
-      console.log('Adios');
-   }
-}
