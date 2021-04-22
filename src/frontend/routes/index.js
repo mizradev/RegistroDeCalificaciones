@@ -7,7 +7,7 @@ const authCtrl = require('../controllers/auth/AuthCtrl');
 const calificacionesCtrl = require('../controllers/registro_calificaciones/ModRegistroCalificacionesCtrl');
 
 // Controladores modulo login
-const { login, recuperarPassword, newPassword } = require('../../api/modulo_login/controllers/AuthCtrl');
+const { login, recuperarPassword, newPassword, passwordPreguntas } = require('../../api/modulo_login/controllers/AuthCtrl');
 const { user } = require('../../api/modulo_login/controllers/userCtrl');
 const { preguntas, getAllPreguntas } = require('../../api/modulo_login/controllers/preguntasCtrl');
 
@@ -32,6 +32,9 @@ router.post('/api/auth/login', [check('correo', 'Debe ser un correo valido y es 
 
 // Ruta recuperar contraseña
 router.get('/api/auth/recuperarContrasenia', [check('correo', 'Debe ser un correo valido y es requerido').isEmail(), validarCampos], recuperarPassword);
+
+// Ruta recuperar contraseña por preguntas
+router.get('/api/auth/recuperarPorPreguntas', [check('correo', 'Debe ser un correo valido y es requerido').isEmail(), check('respuesta', 'La respuesta es obligatoria').not().isEmpty(), validarCampos], passwordPreguntas);
 
 // Ruta para crear la nueva contraseña
 router.put('/api/auth/nuevaContrasenia/:token', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword);
