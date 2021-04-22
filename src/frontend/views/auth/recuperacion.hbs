@@ -11,20 +11,22 @@
         <!-- Recuperación -->
         <div class="col align-center flex-col sign-in">
             <div class="form-wrapper align-center">
-                <form class="form sign-in formulario" id="formulario">
+                <div class="form sign-in formulario" id="formRecuperacion">
 
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
-                        <button type="submit" class="formulario__btn">Recuperar via correo electrónico</button>
+                        <button type="button" class="formulario__btn" id="recuperarPorCorreo">Recuperar via correo
+                            electrónico</button>
                     </div>
                     <br>
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
-                        <button type="submit" class="formulario__btn">Recuperar via preguntas secretas</button>
+                        <button type="button" id="recuperarPorPreguntas" class="formulario__btn">Recuperar via preguntas
+                            secretas</button>
                     </div>
 
                     <p>
-                        <b id="sign-up"><a href="login.html">Regresar al login</a></b>
+                        <b><a href="/auth/login">Regresar al login</a></b>
                     </p>
-                </form>
+                </div>
                 <!-- End form -->
             </div>
 
