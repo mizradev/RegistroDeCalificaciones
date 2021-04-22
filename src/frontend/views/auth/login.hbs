@@ -10,7 +10,8 @@
         <!-- login -->
         <div class="col align-center flex-col sign-in">
             <div class="form-wrapper align-center">
-                <form class="form sign-in formulario" id="formulario">
+                <form class="form sign-in formulario" id="formLogin">
+
                     <div class="input-group formulario__grupo" id="grupo__correo">
                         <i class="fas fa-envelope"></i>
                         <div class="formulario__grupo-input">
@@ -37,7 +38,7 @@
                     </div>
 
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
-                        <button type="submit" class="formulario__btn">Iniciar Sesión</button>
+                        <button type="submit" class="formulario__btn btnLimpiar">Iniciar Sesión</button>
 
                     </div>
 
@@ -58,7 +59,7 @@
         <!-- login Content -->
         <div class="col align-items flex-col">
             <div class="text sign-in">
-                <h2>Registro de <br> calificaciones UNAH</h2>
+                <h2>Registro de <br> calificaciones</h2>
 
             </div>
             <div class="img sign-in">
@@ -70,5 +71,4 @@
 <!-- End Container -->
 
 {{!-- script validación--}}
-<script src="../js/validacion_login.js"></script>
 {{> footer-auth}}
