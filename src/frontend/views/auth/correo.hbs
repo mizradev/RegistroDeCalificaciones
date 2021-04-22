@@ -8,25 +8,19 @@
         </div>
         <!-- End Sign Up -->
 
-        <!-- Recuperación -->
+        <!-- Recuperación por correo-->
         <div class="col align-center flex-col sign-in">
             <div class="form-wrapper align-center">
-                <form class="form sign-in formulario" id="formulario">
+                <form class="form sign-in formulario" id="formCorreo">
 
                     <div class="input-group formulario__grupo" id="grupo__correo">
                         <i class="fas fa-envelope"></i>
                         <div class="formulario__grupo-input">
                             <input type="email" class="formulario__input" placeholder="Correo" name="correo" id="correo"
-                                onkeyup="myFunction()" required />
+                                required />
 
                         </div>
-                        <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos,
-                            guiones y guion bajo.</p>
-                    </div>
-
-                    <div class="formulario__mensaje" id="formulario__mensaje">
-                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
-                            correctamente. </p>
+                        <p class="formulario__input-error">Debe ingresar un corro valido</p>
                     </div>
 
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
@@ -38,7 +32,7 @@
             </div>
 
         </div>
-        <!-- End Recuperación -->
+        <!-- End Recuperación  por correo-->
     </div>
     <!-- End Row -->
     <!-- Content Section -->
@@ -46,10 +40,7 @@
         <!-- Recuperación Content -->
         <div class="col align-items flex-col">
             <div class="text sign-in">
-                <h2>Olvidaste tu contraseña?</h2>
-                <p>
-                    <b>Recuperala aquí</b>
-                </p>
+                <h2>Recuperala a través de tu correo</h2>
             </div>
             <div class="img sign-in">
                 <img style="width: 400px;" src="../img/correo.svg" alt="" />
@@ -60,5 +51,4 @@
 <!-- End Container -->
 
 {{!-- Scripts validación --}}
-<script src="../js/validacion_recuperar.js"></script>
 {{> footer-auth}}
