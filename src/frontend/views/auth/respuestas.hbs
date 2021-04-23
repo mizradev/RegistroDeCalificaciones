@@ -1,0 +1,68 @@
+{{> header-auth}}
+<!-- Container -->
+<div class="container" id="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Sign Up -->
+        <div class="col align-center flex-col sign-up">
+        </div>
+        <!-- End Sign Up -->
+
+        <!-- Recuperación -->
+        <div class="col align-center flex-col sign-in">
+            <div class="form-wrapper align-center">
+                <form class="form sign-in formulario" id="formRespuestas">
+
+                    <label for="Pregunta1"> ¿Como se llama tu mascota favorita?</label>
+
+                    <div class="input-group formulario__grupo" id="grupo__usuario">
+                        <i class="fas fa-keyboard"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="usuario" id="usuario"
+                                placeholder="Respuesta 1" onfocus="myFunction()" required />
+                        </div>
+                        <p class="formulario__input-error">La respuesta solo puede
+                            contener letras, numeros y guion bajo.</p>
+                    </div>
+
+                    <label for="Pregunta2"> ¿Cual es tu apodo?</label>
+
+                    <div class="input-group formulario__grupo" id="grupo__usuario">
+                        <i class="fas fa-keyboard"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="usuario" id="usuario"
+                                placeholder="Respuesta 2" onfocus="myFunction()" required />
+                        </div>
+                        <p class="formulario__input-error">La respuesta solo puede
+                            contener letras, numeros y guion bajo.</p>
+                    </div>
+
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar Respuestas</button>
+                    </div>
+                </form>
+                <!-- End form -->
+            </div>
+
+        </div>
+        <!-- End Recuperación -->
+    </div>
+    <!-- End Row -->
+    <!-- Content Section -->
+    <div class="row content-row">
+        <!-- Recuperación Content -->
+        <div class="col align-items flex-col">
+            <div class="text sign-in ">
+                <h2>Responde estas preguntas de <br> seguridad</h2>
+            </div>
+            <div class="img sign-in">
+                <img style="right: 700px; width=" 300" height="350"" src=" ../img/respuestas.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+
+{{!-- Scripts validación --}}
+{{> footer-auth}}
