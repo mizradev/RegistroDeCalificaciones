@@ -11,7 +11,7 @@
         <!-- Recuperación -->
         <div class="col align-center flex-col sign-in">
             <div class="form-wrapper align-center">
-                <form class="form sign-in formulario" id="formulario">
+                <form class="form sign-in formulario" id="formPreguntas">
 
                     <div class="input-group formulario__grupo" id="grupo__correo">
                         <i class="fas fa-envelope"></i>
@@ -20,30 +20,21 @@
                                 onkeyup="myFunction()" required />
 
                         </div>
-                        <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos,
-                            guiones y guion bajo.</p>
+                        <p class="formulario__input-error">No es un correo valido</p>
                     </div>
 
                     <select name="pregunta" required id="pregunta" class="form-control input-group">
                         <option value="" selected disabled hidden> - Elija una pregunta -</option>
-                        <option value="Pregunta 1">Pregunta 1</option>
-                        <option value="Pregunta 2">Pregunta 2</option>
-                        <option value="Pregunta 3">Pregunta 3</option>
+
                     </select>
 
-                    <div class="input-group formulario__grupo" id="grupo__usuario">
+                    <div class="input-group formulario__grupo" id="grupo__respuesta">
                         <i class="fas fa-question"></i>
                         <div class="formulario__grupo-input">
-                            <input type="text" class="formulario__input" name="usuario" id="usuario"
+                            <input type="text" class="formulario__input" name="respuesta" id="respuesta"
                                 placeholder="Respuesta" onkeyup="myFunction()" />
                         </div>
-                        <p class="formulario__input-error">La respuesta contener de 4 a 50 dígitos y solo puede
-                            contener números, letras y guion bajo.</p>
-                    </div>
-
-                    <div class="formulario__mensaje" id="formulario__mensaje">
-                        <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
-                            correctamente. </p>
+                        <p class="formulario__input-error">La respuesta es obligatoria</p>
                     </div>
 
                     <div class="formulario__grupo formulario__grupo-btn-enviar">
@@ -62,7 +53,7 @@
         <!-- Recuperación Content -->
         <div class="col align-items flex-col">
             <div class="text sign-in">
-                <h2>Olvidaste tu contraseña?</h2>
+                <h2>Recupreala a través <br> de estas preguntas</h2>
                 <!-- <p>
                         <b>Recuperala aquí</b>
                     </p> -->
@@ -76,5 +67,4 @@
 <!-- End Container -->
 
 {{!-- Scripts validación --}}
-<script src="../js/validacion_recuperar.js"></script>
 {{> footer-auth}}
