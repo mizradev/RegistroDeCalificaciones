@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "0a943860-ef3f-439e-8928-8ccf2b2c6f96",
+		"name": "Encoders_Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "authLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\": \"cj@gmail.com\",\r\n    \"password\": \"123j\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsuarioId",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEyLCJyb2wiOjEsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODM0NTk5MCwiZXhwIjoxNjE4MzUzMTkwfQ.SnWU1YH05dhJ5MpYb3BF2KAaE6F7UcQDXFt-FTn7IsM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/usuarios/11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"usuarios",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authRecuperaPasswordMeiler",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"correo\": \"jc@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/recuperarContrasenia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"recuperarContrasenia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authNuevaContraseña",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEyLCJ1c2VyIjoiY2pyYyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxOTEzNDA5NiwiZXhwIjoxNjE5MTM1ODk2fQ.hrh7VO8RGRoIdMxULgGJ6GRX1IX6nsy_AVDiCxPJ_3U",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/nuevaContrasenia",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"nuevaContrasenia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postPreguntas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"respuesta1\": \"hola\",\r\n    \"respuesta2\": \"hola\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/preguntas/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjExLCJ1c2VyIjoiSko5NyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODE4MTU4OSwiZXhwIjoxNjE4MTgzMzg5fQ.ZXdogJHhNK2PApxeSzNS8U67MPVf5wFNytoqqxo-OvY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"preguntas",
+								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjExLCJ1c2VyIjoiSko5NyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODE4MTU4OSwiZXhwIjoxNjE4MTgzMzg5fQ.ZXdogJHhNK2PApxeSzNS8U67MPVf5wFNytoqqxo-OvY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPreguntas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/preguntas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"preguntas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "authRecuperarPorPreguntas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\": \"jo2@gmail.com\",\r\n    \"respuesta\": \"hola\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/recuperarPorPreguntas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"recuperarPorPreguntas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
