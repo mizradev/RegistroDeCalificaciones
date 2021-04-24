@@ -15,8 +15,6 @@
             try {
                const res = (await axios.post('/api/auth/recuperarContrasenia', datos)).data;
 
-               console.log(res);
-
                // Extraemos el token y lo guardamos en localstorage
                const { token } = res;
                localStorage.setItem('token-meiler', token);
@@ -24,18 +22,17 @@
                Swal.fire({
                   icon: 'success',
                   text: res.message,
-               }).then((result) => {
-                  if (result.isConfirmed) {
-                     // limpiamos el formulario
-                     $('#formCorreo')[0].reset();
+                  showConfirmButton: false,
+                  timer: 1500,
+               }).then(() => {
+                  // limpiamos el formulario
+                  $('#formCorreo')[0].reset();
 
-                     // Redireccionar
-                     const url = '/auth/login';
-                     $(location).attr('href', url);
-                  }
+                  // Redireccionar
+                  const url = '/auth/login';
+                  $(location).attr('href', url);
                });
             } catch (error) {
-               console.log(error.response.data);
                // Accedemos al message de la data del error y lo guardamos
                const message = error.response.data.message;
 
@@ -43,11 +40,11 @@
                   icon: 'error',
                   title: 'Error',
                   text: message,
-               }).then((result) => {
+                  showConfirmButton: false,
+                  timer: 1500,
+               }).then(() => {
                   // limpiamos el formulario
-                  if (result.isConfirmed) {
-                     $('#formCorreo')[0].reset();
-                  }
+                  $('#formCorreo')[0].reset();
                });
             }
          } else {
