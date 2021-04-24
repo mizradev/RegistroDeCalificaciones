@@ -21,8 +21,6 @@
             try {
                const res = (await axios.put(`/api/auth/nuevaContrasenia`, datos, { headers })).data;
 
-               console.log(res);
-
                Swal.fire({
                   icon: 'success',
                   text: res.message,
@@ -40,8 +38,6 @@
                   localStorage.removeItem('token-meiler');
                });
             } catch (error) {
-               //    console.log(error);
-               //    console.log(error.response.data);
                // Accedemos al message de la data del error y lo guardamos
                const message = error.response.data.message;
 
