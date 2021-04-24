@@ -1,6 +1,7 @@
 (() => {
    // Extraemos el token del local estorage para comprobar que existe
    const validToken = localStorage.getItem('token');
+
    if (!validToken) {
       $('#formLogin').on('submit', async (e) => {
          e.preventDefault();
@@ -16,8 +17,6 @@
 
             try {
                const res = (await axios.post('/api/auth/login', datos)).data;
-
-               console.log(res);
 
                // Extraemos el token y lo guardamos en localstorage
                const { token } = res;
@@ -37,7 +36,6 @@
                   $(location).attr('href', url);
                });
             } catch (error) {
-               console.log(error.response.data);
                // Accedemos al message de la data del error y lo guardamos
                const message = error.response.data.message;
 
