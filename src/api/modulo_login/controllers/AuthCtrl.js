@@ -165,69 +165,6 @@ const passwordPreguntas = async (req, res) => {
 
 const newPassword = async (req, res) => {
    // Validación para revisar que venga el token
-   const { token } = req.headers;
-   const password = req.body.password;
-
-   if (!token) {
-      return res.status(400).json({ message: 'No tiene Autorización' });
-   }
-
-   try {
-      // Verificar el token del url y extraer el uid
-      const { uid } = jwt.verify(token, process.env.SECRETKEYRESETPASSWOR);
-
-      if (!uid) {
-         return res.status(400).json({ message: 'El usuario no existe' });
-      }
-      // Verificar si uid del token existe en la BD
-      const usuario = await getUsuario(uid);
-      if (!usuario) {
-         return res.status(400).json({ message: 'El usuario no existe' });
-      }
-
-      // Verificamos si existe el token en la BD
-      if (!usuario.token_password) {
-         return res.status(401).json({
-            message: 'No tienes autorización para estar aqui!!',
-         });
-      }
-
-      // verificar que el token de la ruta sea igual al de la base de datos
-      if (token !== usuario.token_password) {
-         return res.status(401).json({
-            message: 'No tienes autorización para estar aqui!!',
-         });
-      }
-
-      // Verificar si el uid tiene estado act
-      if (usuario.indicador_usuario !== 'activo') {
-         return res.status(401).json({
-            message: 'El usuario no existe',
-         });
-      }
-
-      // // Encriptar la nueva contraseña
-      const salt = bcryptjs.genSaltSync();
-      const newPassword = bcryptjs.hashSync(password, salt);
-      // console.log(newPassword);
-
-      // Guardar la nueva contraseña en la BD
-      await postPassword(newPassword, usuario.id_usuario);
-
-      // // Limpiamos el token_password de la BD
-      const tokenPass = null;
-      await limpiarToken(tokenPass, usuario.id_usuario);
-
-      res.status(200).json({ message: 'Contraseña restablecida correctamente' });
-   } catch (error) {
-      console.log(error);
-      return res.status(500).json({ message: 'Hable con el administrador' });
-   }
-   //    Fin try-catch
-};
-
-const newPassword2 = async (req, res) => {
-   // Validación para revisar que venga el token
    if (!req.headers.authorization) {
       return res.status(400).json({ message: 'No tiene Autorización' });
    }
@@ -287,5 +224,4 @@ module.exports = {
    recuperarPassword,
    passwordPreguntas,
    newPassword,
-   newPassword2,
 };
