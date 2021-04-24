@@ -7,7 +7,7 @@ const authCtrl = require('../controllers/auth/AuthCtrl');
 const calificacionesCtrl = require('../controllers/registro_calificaciones/ModRegistroCalificacionesCtrl');
 
 // Controladores modulo login
-const { login, recuperarPassword, newPassword2, passwordPreguntas } = require('../../api/modulo_login/controllers/AuthCtrl');
+const { login, recuperarPassword, newPassword, passwordPreguntas } = require('../../api/modulo_login/controllers/AuthCtrl');
 const { user } = require('../../api/modulo_login/controllers/userCtrl');
 const { preguntas, getAllPreguntas } = require('../../api/modulo_login/controllers/preguntasCtrl');
 
@@ -38,7 +38,7 @@ router.post('/api/auth/recuperarContrasenia', [check('correo', 'Debe ser un corr
 router.post('/api/auth/recuperarPorPreguntas', [check('correo', 'Debe ser un correo valido y es requerido').isEmail(), check('respuesta', 'La respuesta es obligatoria').not().isEmpty(), validarCampos], passwordPreguntas);
 
 // Ruta para crear la nueva contraseña
-router.put('/api/auth/nuevaContrasenia', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword2);
+router.put('/api/auth/nuevaContrasenia', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword);
 
 // Ruta para probar los middlewares
 router.get('/api/usuarios/:id', [validarJWT, esAdminRole, tieneRol(1, 3)], user);
