@@ -12,7 +12,7 @@
 
          if (password.length >= 4 && password2.length >= 4) {
             // Guardamos el token en el headers para enviarlo por axios
-            const headers = { Authorization: `${token}` };
+            const headers = { Authorization: `Bearer ${token}` };
 
             datos = {
                password,
