@@ -1,6 +1,7 @@
 (() => {
    // Extraemos el token del local estorage para comprobar que el usuario esta logeado o no
    const validToken = localStorage.getItem('token');
+
    if (!validToken) {
       $('#formPreguntas').on('submit', async (e) => {
          e.preventDefault();
@@ -26,7 +27,7 @@
                   text: res.message,
                   showConfirmButton: false,
                   timer: 1500,
-               }).then((result) => {
+               }).then(() => {
                   // limpiamos el formulario
                   $('#formPreguntas')[0].reset();
 
