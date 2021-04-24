@@ -26,22 +26,22 @@
                Swal.fire({
                   icon: 'success',
                   text: res.message,
-               }).then((result) => {
-                  if (result.isConfirmed) {
-                     // limpiamos el formulario
-                     $('#formPassword')[0].reset();
+                  showConfirmButton: false,
+                  timer: 1500,
+               }).then(() => {
+                  // limpiamos el formulario
+                  $('#formPassword')[0].reset();
 
-                     // Redireccionar
-                     const url = '/auth/login';
-                     $(location).attr('href', url);
+                  // Redireccionar
+                  const url = '/auth/login';
+                  $(location).attr('href', url);
 
-                     //   Limpiamos el token-meiler del localStorage
-                     localStorage.removeItem('token-meiler');
-                  }
+                  //   Limpiamos el token-meiler del localStorage
+                  localStorage.removeItem('token-meiler');
                });
             } catch (error) {
-               console.log(error);
-               console.log(error.response.data);
+               //    console.log(error);
+               //    console.log(error.response.data);
                // Accedemos al message de la data del error y lo guardamos
                const message = error.response.data.message;
 
@@ -50,7 +50,7 @@
                   title: message,
                   showConfirmButton: false,
                   timer: 1500,
-               }).then((result) => {
+               }).then(() => {
                   // limpiamos el formulario
                   $('#formPassword')[0].reset();
 
@@ -71,18 +71,7 @@
       });
    } else {
       //    Si no existe el token me redirige al login
-      Swal.fire({
-         icon: 'error',
-         title: 'Noi tienes autorizacion para estar aqui',
-         showConfirmButton: false,
-         timer: 1500,
-      }).then((result) => {
-         // limpiamos el formulario
-         $('#formPassword')[0].reset();
-
-         // Redireccionar
-         const url = '/auth/login';
-         $(location).attr('href', url);
-      });
+      const url = '/auth/login';
+      $(location).attr('href', url);
    } //Fin if para token
 })();
