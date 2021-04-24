@@ -2,6 +2,7 @@ exports.pageAuth = (req, res) => {
    res.render('auth/login', {
       nombrePagina: 'login Sistema',
       pageAuthLogin: true,
+      login: true,
       layout: false,
    });
 };
@@ -20,45 +21,47 @@ exports.pantalla_inicio = (req, res) => {
          pageAuthLogin: true,
          layout: false,
       });
-
-   //    return res.render('auth/index', {
-   //       nombrePagina: 'Registro de Calificaciones',
-   //       pageAuthIndex: true,
-   //       layout: 'auth-layout',
-   //    });
 };
 
 exports.recuperacion = (req, res) => {
    return res.render('auth/recuperacion', {
-      nombrePagina: 'Auth - Recuperacion',
+      nombrePagina: 'Recuperacion',
       pageAuthLogin: true,
+      authRecuperacion: true,
       layout: false,
    });
 };
 
 exports.newPassword = (req, res) => {
    return res.render('auth/new_password', {
-      nombrePagina: 'Auth - New Password',
+      nombrePagina: 'New Password',
       pageAuthLogin: true,
+      new_password: true,
       layout: false,
    });
 };
 exports.correo = (req, res) => {
    return res.render('auth/correo', {
-      nombrePagina: 'Auth - Correo',
+      nombrePagina: 'Recuperacion por Correo',
       pageAuthLogin: true,
+      recuperacionCorreo: true,
       layout: false,
    });
 };
 exports.preguntas = (req, res) => {
    return res.render('auth/preguntas', {
-      nombrePagina: 'Auth - Preguntas',
+      nombrePagina: 'Recuperacion por Preguntas',
       pageAuthLogin: true,
+      recuperacionPreguntas: true,
       layout: false,
    });
 };
-// exports.pantalla_inicio = (req, res) => {
-//    res.render('modulos/registro-calificaciones/home', {
-//       nombrePagina: 'Calificaciones',
-//    });
-// };
+
+exports.respuestas = (req, res) => {
+   return res.render('auth/respuestas', {
+      nombrePagina: 'Ingresar respuestas',
+      pageAuthLogin: true,
+      ingresarRespuestas: true,
+      layout: false,
+   });
+};
