@@ -22,6 +22,7 @@ router.get('/auth/recuperacion', authCtrl.recuperacion);
 router.get('/auth/new_password', authCtrl.newPassword);
 router.get('/auth/correo', authCtrl.correo);
 router.get('/auth/preguntas', authCtrl.preguntas);
+router.get('/auth/respuestas/:token', authCtrl.respuestas);
 
 router.get('/home', authCtrl.home);
 
@@ -38,14 +39,14 @@ router.post('/api/auth/recuperarPorPreguntas', [check('correo', 'Debe ser un cor
 
 // Ruta para crear la nueva contraseña
 router.put('/api/auth/nuevaContrasenia', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword2);
-// router.put('/api/auth/nuevaContrasenia', [check('password', 'La contraseña debe contener al menos 4 dígitos y es requerido').isLength({ min: 4 }), validarCampos], newPassword);
 
 // Ruta para probar los middlewares
 router.get('/api/usuarios/:id', [validarJWT, esAdminRole, tieneRol(1, 3)], user);
 
 // ruta insertar preguntas
-router.post('/api/preguntas/:token', [check('respuesta1', 'La respuesta es obligatoria').not().isEmpty(), check('respuesta2', 'La respuesta es obligatoria').not().isEmpty(), validarCampos], preguntas);
+router.post('/api/preguntas', [check('respuesta1', 'La respuesta es obligatoria').not().isEmpty(), check('respuesta2', 'La respuesta es obligatoria').not().isEmpty(), validarCampos], preguntas);
 
+// Ruta para traer las preguntas
 router.get('/api/preguntas', getAllPreguntas);
 
 router.get('*', (req, res) => res.redirect('/'));
