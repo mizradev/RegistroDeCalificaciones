@@ -12,10 +12,17 @@
 					"name": "authLogin",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"correo\": \"cj@gmail.com\",\r\n    \"password\": \"123j\"\r\n}",
+							"raw": "{\r\n    \"correo\": \"jo2@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,7 +55,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEyLCJyb2wiOjEsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODM0NTk5MCwiZXhwIjoxNjE4MzUzMTkwfQ.SnWU1YH05dhJ5MpYb3BF2KAaE6F7UcQDXFt-FTn7IsM",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEyLCJyb2wiOjEsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODM0NTk5MCwiZXhwIjoxNjE4MzUzMTkwfQ.SnWU1YH05dhJ5MpYb3BF2KAaE6F7UcQDXFt-FTn7IsM",
 								"type": "text"
 							}
 						],
@@ -105,7 +112,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEyLCJ1c2VyIjoiY2pyYyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxOTEzNDA5NiwiZXhwIjoxNjE5MTM1ODk2fQ.hrh7VO8RGRoIdMxULgGJ6GRX1IX6nsy_AVDiCxPJ_3U",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjExLCJ1c2VyIjoiSko5NyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxOTIyMzU5NSwiZXhwIjoxNjE5MjI1Mzk1fQ.y9G7OY-fiQO02PeXg7Nj2MTsoGXQLpg9LgykOlc6rMg",
 								"type": "text"
 							}
 						],
@@ -138,7 +145,13 @@
 					"name": "postPreguntas",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEyLCJ1c2VyIjoiY2pyYyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxOTIyNTA3MywiZXhwIjoxNjE5MjI2ODczfQ.7kG2zFiPvBchSQ8aeOMnaPWBjEmCrTx4vivkBR0qrEI",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n    \"respuesta1\": \"hola\",\r\n    \"respuesta2\": \"hola\"\r\n}",
@@ -149,7 +162,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/preguntas/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjExLCJ1c2VyIjoiSko5NyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODE4MTU4OSwiZXhwIjoxNjE4MTgzMzg5fQ.ZXdogJHhNK2PApxeSzNS8U67MPVf5wFNytoqqxo-OvY",
+							"raw": "http://localhost:3000/api/preguntas",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -157,8 +170,7 @@
 							"port": "3000",
 							"path": [
 								"api",
-								"preguntas",
-								"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjExLCJ1c2VyIjoiSko5NyIsImVzdGFkbyI6ImFjdGl2byIsImlhdCI6MTYxODE4MTU4OSwiZXhwIjoxNjE4MTgzMzg5fQ.ZXdogJHhNK2PApxeSzNS8U67MPVf5wFNytoqqxo-OvY"
+								"preguntas"
 							]
 						}
 					},
