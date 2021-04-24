@@ -31,27 +31,23 @@
             try {
                const res = (await axios.post(`/api/preguntas`, datos, { headers })).data;
 
-               console.log(res);
-
                Swal.fire({
                   icon: 'success',
                   text: res.message,
-                  showConfirmButton: false,
-                  timer: 1500,
-               }).then(() => {
-                  // limpiamos el formulario
-                  $('#formRespuestas')[0].reset();
+               }).then((result) => {
+                  if (result.isConfirmed) {
+                     // limpiamos el formulario
+                     $('#formRespuestas')[0].reset();
 
-                  // Redireccionar
-                  const url = '/auth/login';
-                  $(location).attr('href', url);
+                     // Redireccionar
+                     const url = '/auth/login';
+                     $(location).attr('href', url);
 
-                  //   Limpiamos el token-meiler del localStorage
-                  localStorage.removeItem('token-respuesta');
+                     //   Limpiamos el token-meiler del localStorage
+                     localStorage.removeItem('token-respuesta');
+                  }
                });
             } catch (error) {
-               console.log(error);
-               console.log(error.response.data);
                // Accedemos al message de la data del error y lo guardamos
                const message = error.response.data.message;
 
