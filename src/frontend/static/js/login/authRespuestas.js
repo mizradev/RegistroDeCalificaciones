@@ -56,7 +56,7 @@
                   title: message,
                   showConfirmButton: false,
                   timer: 1500,
-               }).then((result) => {
+               }).then(() => {
                   // limpiamos el formulario
                   $('#formRespuestas')[0].reset();
 
@@ -77,7 +77,6 @@
       });
    } else {
       //  Si no existe el token me redirige al login
-
       const url = '/auth/login';
       $(location).attr('href', url);
    } //Fin if para token
