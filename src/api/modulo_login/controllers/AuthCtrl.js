@@ -31,7 +31,7 @@ const login = async (req, res) => {
       }
 
       // Generar el token
-      const token = await generarJWT(usuario.id_usuario, usuario.id_rol, usuario.indicador_usuario);
+      const token = await generarJWT(usuario.id_usuario, usuario.id_rol, usuario.indicador_usuario, usuario.user);
 
       res.status(200).json({ message: 'Inicio de sesión correcto', token: token });
    } catch (error) {
