@@ -1,5 +1,3 @@
-// const { request } = require('express');
-
 (() => {
    // Obtenemos la url actual
    var URLactual = jQuery(location).attr('href');
@@ -38,18 +36,18 @@
                Swal.fire({
                   icon: 'success',
                   text: res.message,
-               }).then((result) => {
-                  if (result.isConfirmed) {
-                     // limpiamos el formulario
-                     $('#formRespuestas')[0].reset();
+                  showConfirmButton: false,
+                  timer: 1500,
+               }).then(() => {
+                  // limpiamos el formulario
+                  $('#formRespuestas')[0].reset();
 
-                     // Redireccionar
-                     const url = '/auth/login';
-                     $(location).attr('href', url);
+                  // Redireccionar
+                  const url = '/auth/login';
+                  $(location).attr('href', url);
 
-                     //   Limpiamos el token-meiler del localStorage
-                     localStorage.removeItem('token-respuesta');
-                  }
+                  //   Limpiamos el token-meiler del localStorage
+                  localStorage.removeItem('token-respuesta');
                });
             } catch (error) {
                console.log(error);
@@ -83,17 +81,8 @@
       });
    } else {
       //  Si no existe el token me redirige al login
-      Swal.fire({
-         icon: 'error',
-         title: 'No tienes autorizacion para estar aqui',
-         showConfirmButton: false,
-         timer: 1500,
-      }).then((result) => {
-         // limpiamos el formulario
-         $('#formRespuestas')[0].reset();
-         // Redireccionar
-         const url = '/auth/login';
-         $(location).attr('href', url);
-      });
+
+      const url = '/auth/login';
+      $(location).attr('href', url);
    } //Fin if para token
 })();
