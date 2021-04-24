@@ -3,6 +3,7 @@ const bcryptjs = require('bcryptjs');
 
 const { getEmail, postToken, getUsuario, postPassword, limpiarToken, getRespuestas } = require('../model/users');
 const { generarJWT, generarJwtPassword } = require('../helpers/generar-jwt');
+
 const transporter = require('../config/meiler');
 
 const login = async (req, res) => {
@@ -64,13 +65,13 @@ const recuperarPassword = async (req, res) => {
       const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
 
       // Generar la url para actualizar la contraseña
-      verificarLink = `http://${req.headers.host}/auth/new_password/${token}`;
+      verificarLink = `http://${req.headers.host}/auth/new_password`;
       // console.log(verificarLink);
 
       // Guardar el token en la Base de Datos
       await postToken(token, usuario.id_usuario);
 
-      res.status(200).json({ message: message, url: verificarLink });
+      res.status(200).json({ message: message, token });
    } catch (error) {
       console.log(error);
       return res.status(500).json({ message: 'Hable con el Administrador' });
@@ -110,10 +111,9 @@ const passwordPreguntas = async (req, res) => {
    const respuesta = req.body.respuesta;
 
    let verificarLink;
-   let usuario;
    try {
       // Modelo de datos de usuario
-      usuario = await getEmail(correo);
+      const usuario = await getEmail(correo);
 
       // Verificar si el correo existe
       if (usuario === undefined) {
@@ -129,34 +129,32 @@ const passwordPreguntas = async (req, res) => {
       const respuestas = await getRespuestas(usuario.id_usuario);
 
       //   Validar que existan respuestas en la BD
-      if (!respuestas) {
-         return res.status(400).json({ message: 'El usuario es incorrecto' });
-      }
-
       if (respuesta === respuestas.respuesta_1 && respuesta !== respuestas.respuesta_2) {
          // // Generar el token
          const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
 
          // Generar la url para actualizar la contraseña
-         verificarLink = `http://${req.headers.host}/auth/new_password/${token}`;
+         verificarLink = `http://${req.headers.host}/auth/new_password`;
          // console.log(verificarLink);
 
          // Guardar el token en la Base de Datos
          await postToken(token, usuario.id_usuario);
 
-         res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', verificarLink });
+         res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', token });
       } else if (respuesta === respuestas.respuesta_2 && respuesta !== respuestas.respuesta_1) {
          // // Generar el token
          const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
 
          // Generar la url para actualizar la contraseña
-         verificarLink = `http://${req.headers.host}/auth/new_password/${token}`;
+         verificarLink = `http://${req.headers.host}/auth/new_password`;
          // console.log(verificarLink);
 
          // Guardar el token en la Base de Datos
          await postToken(token, usuario.id_usuario);
 
-         res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', verificarLink });
+         res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', token });
+      } else {
+         return res.status(400).json({ message: 'El usuario es incorrecto' });
       }
    } catch (error) {
       console.log(error);
@@ -167,7 +165,7 @@ const passwordPreguntas = async (req, res) => {
 
 const newPassword = async (req, res) => {
    // Validación para revisar que venga el token
-   const { token } = req.params;
+   const { token } = req.headers;
    const password = req.body.password;
 
    if (!token) {
