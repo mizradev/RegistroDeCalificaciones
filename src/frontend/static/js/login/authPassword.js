@@ -10,7 +10,7 @@
          const password = $('#password').val();
          const password2 = $('#password2').val();
 
-         if (password.length >= 4 && password2.length >= 4) {
+         if (password.length === password2.length) {
             // Guardamos el token en el headers para enviarlo por axios
             const headers = { Authorization: `Bearer ${token}` };
 
