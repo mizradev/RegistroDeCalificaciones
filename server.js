@@ -28,7 +28,6 @@ app.use(express.json({ extended: true }));
 app.use('/', require('./src/frontend/routes'));
 
 // Route api
-app.use('/api/v1/calificaciones', require('./src/api/registro_calificaciones/routes'));
 app.use('/api/v1/auth', require('./src/api/modulo_login/routes'));
 
 //Starting the server
