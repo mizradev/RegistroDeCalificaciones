@@ -13,7 +13,7 @@
             };
 
             try {
-               const res = (await axios.post('/api/auth/recuperarContrasenia', datos)).data;
+               const res = (await axios.post('/api/v1/auth/recuperarContrasenia', datos)).data;
 
                // Extraemos el token y lo guardamos en localstorage
                const { token } = res;

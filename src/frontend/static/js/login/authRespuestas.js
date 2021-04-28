@@ -29,7 +29,7 @@
             };
 
             try {
-               const res = (await axios.post(`/api/preguntas`, datos, { headers })).data;
+               const res = (await axios.post(`/api/v1/auth/preguntas`, datos, { headers })).data;
 
                Swal.fire({
                   icon: 'success',
