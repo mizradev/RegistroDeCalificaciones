@@ -3,7 +3,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const app = express();
 
-
+const calificacionesCtrl = require('./src/frontend/controllers/registro_calificaciones/ModRegistroCalificacionesCtrl')
 // enviroments vars
 require('dotenv').config();
 
@@ -14,9 +14,9 @@ app.engine('.hbs',
         extname: '.hbs'
     })
 );
+app.use(express.static(path.join(__dirname+'/src/frontend', 'static')));
 app.set('view engine', '.hbs');
 app.set('views', './src/frontend/views');
-app.use(express.static(path.join(__dirname+'/src/frontend', 'static')));
 
 //Settings
 app.set('port', process.env.PORT || 3000);

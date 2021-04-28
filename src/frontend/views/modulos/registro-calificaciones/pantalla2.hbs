@@ -1,0 +1,124 @@
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0">Detalle de calificaciones</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                    <li class="breadcrumb-item active"><a href="/calificaciones">Calificaciones</a></li>
+                    <li class="breadcrumb-item active">Alumno</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    {{!-- <div class="card-header">
+                        <h2 class="card-title">Detalle de calificaciones</h2>
+                    </div> --}}
+                    <div class="card-body">
+                        <div class="row pb-4">
+                            <div class="col-12 col-md-2">
+                                <img class="img-fluid rounded-circle" width="150" height="150"
+                                    src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.KmByPh1LrXzCLhXFgn-T8AHaHa%26pid%3DApi&f=1"
+                                    alt="img del alumno">
+                            </div>
+                            <div class="col-12 col-md-10">
+                                <h2>Crescencio Cecilio Lopez Arellano</h2>
+                                <small>Informatica administrativa</small>
+                                <p>Periodo: 3 | Year: 2021 | Numero de cuenta: 20141005648</p>
+                            </div>
+                        </div>
+
+                        <ul class="nav nav-tabs" id="custom-content-above-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="custom-content-above-home-tab" data-toggle="pill"
+                                    href="#custom-content-above-home" role="tab"
+                                    aria-controls="custom-content-above-home" aria-selected="true">Parcial 1</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content" id="custom-content-above-tabContent">
+                            <div class="tab-pane fade active show" id="custom-content-above-home" role="tabpanel"
+                                aria-labelledby="custom-content-above-home-tab">
+                                <table id="example2" class="table table-bordered table-hover dataTable dtr-inline"
+                                    role="grid" aria-describedby="example2_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting sorting_asc" tabindex="0" aria-controls="example2"
+                                                rowspan="1" colspan="1" aria-sort="ascending"
+                                                aria-label="Rendering engine: activate to sort column descending">
+                                                Actividad</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1" aria-label="Browser: activate to sort column ascending">
+                                                Valor</th>
+                                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
+                                                colspan="1" aria-label="Platform(s): activate to sort column ascending">
+                                                Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="odd">
+                                            <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
+                                            <td>25.89</td>
+                                            <td><button class="btn btn-warning btnEditarPuntaje"> edit </button></td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
+                                            <td>35.78</td>
+                                            <td><button class="btn btn-warning btnEditarPuntaje"> edit </button></td>
+                                        </tr>
+                                        <tr class="odd">
+                                            <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
+                                            <td>60</td>
+                                            <td><button class="btn btn-warning btnEditarPuntaje"> edit </button></td>
+                                        </tr>
+                                        <tr class="even">
+                                            <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
+                                            <td>90</td>
+                                            <td><button class="btn btn-warning"> edit </button></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">Rendering engine</th>
+                                            <th rowspan="1" colspan="1">Browser</th>
+                                            <th rowspan="1" colspan="1">Platform(s)</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalEditarPuntaje" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Editar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

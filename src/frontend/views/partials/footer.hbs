@@ -12,14 +12,30 @@
 
 <!-- REQUIRED SCRIPTS -->
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="/plugins/jquery/jquery.min.js"></script>
+
+<!-- datatable -->
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+<!-- toastr -->
+<script src="/plugins/toastr/toastr.min.js"></script>
+
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
 <!-- AdminLTE App -->
-<script src="./js/adminlte.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+
 {{#if registroCalificaciones}}
-  <script src="../js/registro_calificaciones/calificaciones.js"></script>
+  <script src="/js/registro_calificaciones/calificaciones.js"></script>
+{{/if}}
+
+{{#if pantalla2 }}
+  <script src="/js/registro_calificaciones/pantalla2.js"></script>
 {{/if}}
 </body>
 </html>
