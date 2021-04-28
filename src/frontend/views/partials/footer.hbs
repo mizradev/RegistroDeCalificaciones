@@ -1,12 +1,16 @@
-  <!-- Main Footer -->
-  <footer class="main-footer">
+<!-- Main Footer -->
+<footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+        Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+    <strong>Copyright &copy;
+        <script>document.write(new Date().getFullYear())</script> <a href="https://adminlte.io">Refistro de
+            Calificaciones</a>.
+    </strong> All rights
+    reserved.
+</footer>
 </div>
 <!-- ./wrapper -->
 
@@ -17,9 +21,13 @@
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<script src="./js/adminlte.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+
+<script src="/js/login/home.js"></script>
+
 {{#if registroCalificaciones}}
-  <script src="../js/registro_calificaciones/calificaciones.js"></script>
+<script src="/js/registro_calificaciones/calificaciones.js"></script>
 {{/if}}
 </body>
+
 </html>

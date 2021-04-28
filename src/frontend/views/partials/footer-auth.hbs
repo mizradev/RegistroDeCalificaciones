@@ -1,10 +1,45 @@
 </body>
-<!-- jQuery -->
-<script src="../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../js/adminlte.min.js"></script>
-<script src="../js/login.js"></script>
+{{!-- Axios --}}
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+{{!-- Query --> --}}
+<script src="/plugins/jquery/jquery.min.js"></script>
+
+{{!-- Sweetalert2 para los alertas --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script src="/js/login.js"></script>
+
+{{#if login }}
+<script src="/js/login/validacion_login.js"></script>
+<script src="/js/login/authLogin.js"></script>
+{{/if}}
+
+{{#if authRecuperacion }}
+<script src="/js/login/authRecuperacion.js"></script>
+{{/if}}
+
+{{#if recuperacionCorreo }}
+<script src="/js/login/validacion_correo.js"></script>
+<script src="/js/login/authCorreo.js"></script>
+{{/if}}
+
+{{#if recuperacionPreguntas}}
+<script src="/js/login/authGetPreguntas.js"></script>
+<script src="/js/login/validacion_preguntas.js"></script>
+<script src="/js/login/authPreguntas.js"></script>
+{{/if}}
+
+{{#if new_password }}
+<script src="/js/login/validacion_password.js"></script>
+<script src="/js/login/authPassword.js"></script>
+{{/if}}
+
+{{#if ingresarRespuestas }}
+<script src="/js/login/validacion_respuestas.js"></script>
+<script src="/js/login/authRespuestas.js"></script>
+{{/if}}
+
 </body>
+
 </html>
