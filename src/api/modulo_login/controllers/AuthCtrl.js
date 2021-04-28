@@ -110,7 +110,6 @@ const passwordPreguntas = async (req, res) => {
    const correo = req.body.correo;
    const respuesta = req.body.respuesta;
 
-   let verificarLink;
    try {
       // Modelo de datos de usuario
       const usuario = await getEmail(correo);
