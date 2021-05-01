@@ -2,18 +2,42 @@ const mysqlConnection = require('../../../config/db');
 
 const { validationResult } = require('express-validator');
 
-exports.obtenerNotasPorAlumno = (req, res) => {}
-
-exports.obtenerAlumnosPorAsignaturaDocente = (req, res) => {}
-
-exports.prueba = (req, res) => {
-
-    const errors = validationResult(req);
+exports.obtenerNotasPorAlumno = async (req, res) => {   const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(422).json({errors: errors.array()});
     }
+    const { nota_final, numero_cuenta, nombre_asignatura, seccion, observacion  } = req.body;
+    const query ='call obtenerNotasPorAlumno(?,?,?,?,?)'
+    try {
+        const result = await mysqlConnection.query(query,[nota_final, numero_cuenta, nombre_asignatura, seccion, observacion ]);
+        return res.status(200).json({error: false, datos: result}); 
+    } catch (error) {
+        console.log(error);
+    }
+  }
+exports.obtenerAlumnosPorAsignaturaDocente = async (req, res) => {   const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(422).json({errors: errors.array()});
+    }
+    const { numero_cuenta,nombre_persona,parcial,nota_final,observacion } = req.body;
+    const query ='call obtenerAlumnosPorAsignaturaDocente(?,?,?,?,?)';
+        try {
+            const result = await mysqlConnection.query(query,[numero_cuenta,nombre_persona,parcial,nota_final,observacion ]);
+            return res.status(200).json({error: false, datos: result}); 
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
-    const { email, edad, nombre } = req.body;
-
-    return res.json({msg: 'Todo bien!', datos: [email, edad, nombre] });
-}
+    exports.informacion_notas = async (req, res) => {   const errors = validationResult(req);
+        if(!errors.isEmpty())
+            return res.status(422).json({errors: errors.array()});
+        const {nombre_asignatura,seccion, nombre_persona,parcial } = req.body;
+        const query ='call informacion_notas(?)';
+        try {
+            const result = await mysqlConnection.query(query,[nombre_asignatura,seccion, nombre_persona,parcial ]);
+            return res.status(200).json({error: false, datos: result}); 
+        } catch (error) {
+            console.log(error);
+        }
+    }
