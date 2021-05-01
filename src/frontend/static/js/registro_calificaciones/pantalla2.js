@@ -29,6 +29,7 @@
 
     $('.btnEditarPuntaje').on('click', function () {
         //$('#modalEditarPuntaje').modal('show');
+        toastr.options = {"progressBar": true}
         toastr.success('Funciona! ');
     })
 
