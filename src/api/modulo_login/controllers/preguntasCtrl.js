@@ -52,6 +52,7 @@ const preguntas = async (req, res) => {
          id_preguntas: 4,
          Respuesta_1: respuesta1,
          Respuesta_2: respuesta2,
+         usr_registro: usuario.nombre_usuario,
          fecha_registro: new Date(),
       };
       await postRespuestas(respuestas);
