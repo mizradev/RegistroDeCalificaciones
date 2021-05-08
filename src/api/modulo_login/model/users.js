@@ -3,7 +3,7 @@ const mysqlConnection = require('../../../config/db');
 // Obtener usuario por correo
 const getEmail = (pEmail) => {
    return new Promise((resolve, reject) => {
-      mysqlConnection.query(`SELECT * FROM usuarios WHERE correo = ?`, [pEmail], (err, row) => {
+      mysqlConnection.query(`SELECT * FROM usuario WHERE correo_usuario = ?`, [pEmail], (err, row) => {
          if (err) {
             reject(err);
             console.log(err);
@@ -17,7 +17,7 @@ const getEmail = (pEmail) => {
 // Obtener usuario por id
 const getUsuario = (id) => {
    return new Promise((resolve, reject) => {
-      mysqlConnection.query(`SELECT * FROM usuarios WHERE id_usuario = ?`, [id], (err, user) => {
+      mysqlConnection.query(`SELECT * FROM usuario WHERE id_usuario = ?`, [id], (err, user) => {
          if (err) {
             reject(err);
             console.log(err);
@@ -31,7 +31,7 @@ const getUsuario = (id) => {
 // Insertar token_password a usuarios por email
 const postToken = (token, id) => {
    return new Promise((resolve, reject) => {
-      mysqlConnection.query('UPDATE usuarios SET token_password = ? WHERE usuarios.id_usuario = ?', [token, id], (err, row) => {
+      mysqlConnection.query('UPDATE usuario SET token_password = ? WHERE usuario.id_usuario = ?', [token, id], (err, row) => {
          if (err) {
             reject(err);
             console.log(err);
@@ -45,7 +45,7 @@ const postToken = (token, id) => {
 // Cambiar contraseña y limpiar el campo del token
 const postPassword = (id, password) => {
    return new Promise((resolve, reject) => {
-      mysqlConnection.query('UPDATE usuarios SET password = ? WHERE usuarios.id_usuario = ?', [id, password], (err, result) => {
+      mysqlConnection.query('UPDATE usuario SET password_usuario = ? WHERE usuario.id_usuario = ?', [id, password], (err, result) => {
          if (err) {
             reject(err);
             console.log(err);
@@ -59,7 +59,7 @@ const postPassword = (id, password) => {
 // Limpiar el campo token_password después de cambiar la contraseña
 const limpiarToken = (id, token_password) => {
    return new Promise((resolve, reject) => {
-      mysqlConnection.query('UPDATE usuarios SET token_password = ? WHERE usuarios.id_usuario = ?', [id, token_password], (err, rows) => {
+      mysqlConnection.query('UPDATE usuario SET token_password = ? WHERE usuario.id_usuario = ?', [id, token_password], (err, rows) => {
          if (err) {
             reject(err);
             console.log(err);
@@ -87,7 +87,7 @@ const postRespuestas = (respuestas) => {
 // Limpiamos el token de las preguntas
 const tokenPreguntas = (id, token_preguntas) => {
    return new Promise((resolve, reject) => {
-      mysqlConnection.query('UPDATE usuarios SET token_preguntas = ? WHERE usuarios.id_usuario = ?', [id, token_preguntas], (err, rows) => {
+      mysqlConnection.query('UPDATE usuario SET token_preguntas = ? WHERE usuario.id_usuario = ?', [id, token_preguntas], (err, rows) => {
          if (err) {
             reject(err);
             console.log(err);
