@@ -81,8 +81,8 @@ const recuperarPassword = async (req, res) => {
    try {
       // Enviamos el email
       await transporter.sendMail({
-         from: '"Cambiar Credenciales " <encoders@gmail.com>',
-         to: usuario.correo,
+         from: '"Cambiar Credenciales " <login.encoders@gmail.com>',
+         to: usuario.correo_usuario,
          subject: 'Cambiar Credenciales',
          text: 'Hello world?',
          html: ` 
@@ -97,7 +97,6 @@ const recuperarPassword = async (req, res) => {
                 <h4 style='color:black;'>Si no requieres cambio de contraseña o no has sido quien lo ha
                     solicitado,<br>simplemente
                     ignora este mensaje!</h4>
-                <h4>Contacto: Perla Casco, Directora Ejecutiva<br>#: (+504)2283-0967 | (+504)8824-2342</h4>
             </center>`,
       });
    } catch (error) {
