@@ -30,9 +30,3 @@ Sistema desarrollado como proyecto para la clase de programación e implementaci
 -  Instalar las dependencias del proyecto, con el comando: `npm install `
 
 -  Ejecutar el proyecto con el comando: `npm run dev`
-
-## Modulo Login
-
-![login](images/img2.png)
-
-![login](images/img1.png)
