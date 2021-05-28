@@ -19,6 +19,7 @@ exports.pantalla_inicio = (req, res) => {
     })
 }
 
+
 exports.recuperacion = (req, res) => {
     return res.render('auth/recuperacion',{
         nombrePagina: 'Auth - Recuperacion',
