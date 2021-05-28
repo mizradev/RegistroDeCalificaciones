@@ -5,55 +5,51 @@
       Anything you want
     </div>
     <!-- Default to the left -->
+
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
-
 <!-- REQUIRED SCRIPTS -->
 
+
+<!--AXIOS-->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!--CLOUDINARY-->
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+
+
 <!-- AdminLTE App -->
-<script src="./js/adminlte.min.js"></script>
+<script src="/js/adminlte.min.js"></script>
+
 {{#if registroCalificaciones}}
   <script src="../js/registro_calificaciones/calificaciones.js"></script>
 {{/if}}
 
-<script>
-  $(function () {
-    //Enable check and uncheck all functionality
-    $('.checkbox-toggle').click(function () {
-      var clicks = $(this).data('clicks')
-      if (clicks) {
-        //Uncheck all checkboxes
-        $('.mailbox-messages input[type=\'checkbox\']').prop('checked', false)
-        $('.checkbox-toggle .far.fa-check-square').removeClass('fa-check-square').addClass('fa-square')
-      } else {
-        //Check all checkboxes
-        $('.mailbox-messages input[type=\'checkbox\']').prop('checked', true)
-        $('.checkbox-toggle .far.fa-square').removeClass('fa-square').addClass('fa-check-square')
-      }
-      $(this).data('clicks', !clicks)
-    })
+{{#if ticketsMensajes}}
+  <script src="../js/md_ticket/tickets.js"></script>
+{{/if}}
+{{#if ticketsResponderMensajes}}
+  <script src="../js/md_ticket/responder.js"></script>
+{{/if}}
+{{#if registroNuevoMensaje}}
+  <script src="../js/md_ticket/mensajeNuevo.js"></script>
+{{/if}}
 
-    //Handle starring for font awesome
-    $('.mailbox-star').click(function (e) {
-      e.preventDefault()
-      //detect type
-      var $this = $(this).find('a > i')
-      var fa    = $this.hasClass('fa')
+{{#if ticketsmsjenviado}}
+  <script src="../js/md_ticket/ticketsenviado.js"></script>
+{{/if}}
 
-      //Switch states
-      if (fa) {
-        $this.toggleClass('fa-star')
-        $this.toggleClass('fa-star-o')
-      }
-    })
-  })
-</script>
+{{#if   ticketsverenviado}}
+  <script src="../js/md_ticket/verticketenviado.js"></script>
+{{/if}}
+
+
+
 
 </body>
 </html>
