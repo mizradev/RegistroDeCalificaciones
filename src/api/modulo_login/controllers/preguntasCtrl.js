@@ -1,4 +1,6 @@
+const bcryptjs = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+
 const { getUsuario, postRespuestas, tokenPreguntas, getPreguntas } = require('../model/users');
 
 const preguntas = async (req, res) => {
@@ -10,12 +12,17 @@ const preguntas = async (req, res) => {
    const respuesta1 = req.body.respuesta1;
    const respuesta2 = req.body.respuesta2;
 
+   // Encriptar la respuestas secretas
+   const salt = bcryptjs.genSaltSync();
+   const newRespuesta1 = bcryptjs.hashSync(respuesta1, salt);
+   const newRespuesta2 = bcryptjs.hashSync(respuesta2, salt);
+
    const token = req.headers.authorization.split(' ')[1];
 
    try {
       // Verificar el token del url y extraer el uid
       const { uid, estado } = jwt.verify(token, process.env.SECRETKEYRESETPASSWOR);
-      // console.log(uid, estado);
+
       if (!uid) {
          return res.status(400).json({ message: 'El usuario no existe' });
       }
@@ -50,11 +57,12 @@ const preguntas = async (req, res) => {
       const respuestas = {
          id_usuario: uid,
          id_preguntas: 4,
-         Respuesta_1: respuesta1,
-         Respuesta_2: respuesta2,
+         Respuesta_1: newRespuesta1,
+         Respuesta_2: newRespuesta2,
          usr_registro: usuario.nombre_usuario,
          fecha_registro: new Date(),
       };
+
       await postRespuestas(respuestas);
 
       // // Limpiamos el token_preguntas de la BD
