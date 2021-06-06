@@ -7,6 +7,7 @@ const app = express();
 require('dotenv').config();
 
 // handlebars engine view
+<<<<<<< HEAD
 app.engine('.hbs',
     exphbs({
         defaultLayout: 'main-layout',
@@ -18,12 +19,24 @@ app.set('view engine', '.hbs');
 app.set('views', './src/frontend/views');
 
 app.use(express.static(path.join(__dirname+'/src/frontend', 'static')));
+=======
+app.engine(
+   '.hbs',
+   exphbs({
+      defaultLayout: 'main-layout',
+      extname: '.hbs',
+   })
+);
+app.set('view engine', '.hbs');
+app.set('views', './src/frontend/views');
+app.use(express.static(path.join(__dirname + '/src/frontend', 'static')));
+>>>>>>> origin/staging
 
 //Settings
 app.set('port', process.env.PORT || 3000);
 
 //Middlewares
-app.use(express.json({extended: true}));
+app.use(express.json({ extended: true }));
 
 
 
@@ -32,11 +45,14 @@ app.use(express.json({extended: true}));
 app.use('/', require('./src/frontend/routes'));
 
 // Route api
+<<<<<<< HEAD
 app.use('/api/v1/calificaciones', require('./src/api/registro_calificaciones/routes'));
 app.use('/api/v1/mensaje', require('./src/api/modulo_ticket/routes'));
+=======
+app.use('/api/v1/auth', require('./src/api/modulo_login/routes'));
+>>>>>>> origin/staging
 
 //Starting the server
 app.listen(app.get('port'), () => console.log(`server on port http://localhost:${app.get('port')}`));
-
 
 module.exports = app;

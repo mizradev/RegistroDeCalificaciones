@@ -1,0 +1,54 @@
+{{> header-auth}}
+<!-- Container -->
+<div class="container" id="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Sign Up -->
+        <div class="col align-center flex-col sign-up">
+        </div>
+        <!-- End Sign Up -->
+
+        <!-- Recuperación por correo-->
+        <div class="col align-center flex-col sign-in">
+            <div class="form-wrapper align-center">
+                <form class="form sign-in formulario" id="formCorreo">
+
+                    <div class="input-group formulario__grupo" id="grupo__correo">
+                        <i class="fas fa-envelope"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="email" class="formulario__input" placeholder="Correo" name="correo" id="correo"
+                                required />
+
+                        </div>
+                        <p class="formulario__input-error">Debe ingresar un corro valido</p>
+                    </div>
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                    </div>
+
+                </form>
+                <!-- End form -->
+            </div>
+
+        </div>
+        <!-- End Recuperación  por correo-->
+    </div>
+    <!-- End Row -->
+    <!-- Content Section -->
+    <div class="row content-row">
+        <!-- Recuperación Content -->
+        <div class="col align-items flex-col">
+            <div class="text sign-in">
+                <h2>Recuperala a través <br> de tu correo</h2>
+            </div>
+            <div class="img sign-in">
+                <img style="width: 400px;" src="/img/correo.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+
+{{!-- Scripts validación --}}
+{{> footer-auth}}

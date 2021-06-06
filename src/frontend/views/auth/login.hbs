@@ -1,54 +1,69 @@
 {{> header-auth}}
-    <div class="container" id="container">
-        <!-- Row -->
-        <div class="row">
-            <!-- Sign Up -->
-            <div class="col align-center flex-col sign-up">
-            </div>
-            <!-- End Sign Up -->
-
-            <!-- login -->
-            <div class="col align-center flex-col sign-in">
-                <div class="form-wrapper align-center">
-                    <div class="form sign-in">
-                        <div class="input-group">
-                            <i class="bx bxs-user"></i>
-                            <input type="text" placeholder="Usuario" />
-                        </div>
-                        <div class="input-group">
-                            <i class="bx bxs-lock-alt"></i>
-                            <input type="password" placeholder="Contraseña" />
-                        </div>
-                        <button>Iniciar Sesión</button>
-                        <p>
-                            <b><a href="/auth/recuperacion">Olvidaste tu contraseña?</a></b>
-                        </p>
-                        <!-- <p>
-                            <span> Aun no tienes cuenta? </span>
-                            <b id="sign-up">Registrate aquí</b>
-                        </p> -->
-                    </div>
-                </div>
-
-            </div>
-            <!-- End login -->
+<div class="container" id="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Sign Up -->
+        <div class="col align-center flex-col sign-up">
         </div>
-        <!-- End Row -->
-        <!-- Content Section -->
-        <div class="row content-row">
-            <!-- login Content -->
-            <div class="col align-items flex-col">
-                <div class="text sign-in">
-                    <h2>Registro de <br> calificaciones UNAH</h2>
+        <!-- End Sign Up -->
+
+        <!-- login -->
+        <div class="col align-center flex-col sign-in">
+            <div class="form-wrapper align-center">
+                <form class="form sign-in formulario" id="formLogin">
+
+                    <div class="input-group formulario__grupo" id="grupo__correo">
+                        <i class="fas fa-envelope"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="email" class="formulario__input" placeholder="Correo" name="correo" id="correo"
+                                onfocus="myFunction()" required />
+
+                        </div>
+                        <p class="formulario__input-error">No es un correo valido</p>
+                    </div>
+
+                    <div class="input-group formulario__grupo" id="grupo__password">
+                        <i class="fas fa-lock"></i>
+                        <div class="formulario__grupo-inpu">
+                            <input class="formulario__input" name="password" id="password" type="password"
+                                placeholder="Contraseña" onfocus="myFunction()" required />
+                        </div>
+                        <p class="formulario__input-error">La contraseña debe contener de 4 a 12 dígitos.</p>
+                    </div>
+
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn btnLimpiar">Iniciar Sesión</button>
+
+                    </div>
+
                     <p>
-                        <!-- <b>Bienvenidos</b> -->
+                        <b><a href="/auth/recuperacion">Olvidaste tu contraseña?</a></b>
                     </p>
-                </div>
-                <div class="img sign-in">
-                    <img src="../img/bg1.svg" alt="" />
-                </div>
+
+                </form>
+
+            </div>
+
+        </div>
+        <!-- End login -->
+    </div>
+    <!-- End Row -->
+    <!-- Content Section -->
+    <div class="row content-row">
+        <!-- login Content -->
+        <div class="col align-items flex-col">
+            <div class="text sign-in">
+                <h2>Registro de <br> calificaciones</h2>
+
+            </div>
+            <div class="img sign-in">
+                <img src="/img/bg1.svg" alt="" />
             </div>
         </div>
     </div>
-    <!-- End Container -->
+</div>
+<!-- End Container -->
+
+{{!-- script validación--}}
 {{> footer-auth}}

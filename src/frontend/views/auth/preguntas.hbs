@@ -1,0 +1,70 @@
+{{> header-auth}}
+<!-- Container -->
+<div class="container" id="container">
+    <!-- Row -->
+    <div class="row">
+        <!-- Sign Up -->
+        <div class="col align-center flex-col sign-up">
+        </div>
+        <!-- End Sign Up -->
+
+        <!-- Recuperación -->
+        <div class="col align-center flex-col sign-in">
+            <div class="form-wrapper align-center">
+                <form class="form sign-in formulario" id="formPreguntas">
+
+                    <div class="input-group formulario__grupo" id="grupo__correo">
+                        <i class="fas fa-envelope"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="email" class="formulario__input" placeholder="Correo" name="correo" id="correo"
+                                onkeyup="myFunction()" required />
+
+                        </div>
+                        <p class="formulario__input-error">No es un correo valido</p>
+                    </div>
+
+                    <select name="pregunta" required id="pregunta" class="form-control input-group">
+                        <option value="" selected disabled hidden> - Elija una pregunta -</option>
+
+                    </select>
+
+                    <div class="input-group formulario__grupo" id="grupo__respuesta">
+                        <i class="fas fa-question"></i>
+                        <div class="formulario__grupo-input">
+                            <input type="text" class="formulario__input" name="respuesta" id="respuesta"
+                                placeholder="Respuesta" onkeyup="myFunction()" />
+                        </div>
+                        <p class="formulario__input-error">La respuesta es obligatoria</p>
+                    </div>
+
+                    <div class="formulario__grupo formulario__grupo-btn-enviar">
+                        <button type="submit" class="formulario__btn">Enviar</button>
+                    </div>
+                </form>
+                <!-- End form -->
+            </div>
+
+        </div>
+        <!-- End Recuperación -->
+    </div>
+    <!-- End Row -->
+    <!-- Content Section -->
+    <div class="row content-row">
+        <!-- Recuperación Content -->
+        <div class="col align-items flex-col">
+            <div class="text sign-in">
+                <h2>Recuperala a través <br> de estas preguntas</h2>
+                <!-- <p>
+                        <b>Recuperala aquí</b>
+                    </p> -->
+            </div>
+            <div class="img sign-in">
+                <img src="/img/preguntas.svg" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Container -->
+
+{{!-- Scripts validación --}}
+{{> footer-auth}}
