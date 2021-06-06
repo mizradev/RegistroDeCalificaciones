@@ -25,13 +25,13 @@ const login = async (req, res) => {
       }
 
       // Verificar la contraseña
-      const validarPassword = bcryptjs.compareSync(password, usuario.password);
+      const validarPassword = bcryptjs.compareSync(password, usuario.password_usuario);
       if (!validarPassword) {
          return res.status(400).json({ message: 'El usuario o la contraseña son invalidos' });
       }
 
       // Generar el token
-      const token = await generarJWT(usuario.id_usuario, usuario.id_rol, usuario.indicador_usuario, usuario.user);
+      const token = await generarJWT(usuario.id_usuario, usuario.id_rol_usuario, usuario.indicador_usuario, usuario.nombre_usuario);
 
       res.status(200).json({ message: 'Inicio de sesión correcto', token: token });
    } catch (error) {
@@ -62,7 +62,7 @@ const recuperarPassword = async (req, res) => {
       }
 
       // // Generar el token
-      const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
+      const token = await generarJwtPassword(usuario.id_usuario, usuario.nombre_usuario, usuario.indicador_usuario);
 
       // Generar la url para actualizar la contraseña
       verificarLink = `http://${req.headers.host}/auth/new_password`;
@@ -81,8 +81,8 @@ const recuperarPassword = async (req, res) => {
    try {
       // Enviamos el email
       await transporter.sendMail({
-         from: '"Cambiar Credenciales " <encoders@gmail.com>',
-         to: usuario.correo,
+         from: '"Cambiar Credenciales " <login.encoders@gmail.com>',
+         to: usuario.correo_usuario,
          subject: 'Cambiar Credenciales',
          text: 'Hello world?',
          html: ` 
@@ -97,7 +97,6 @@ const recuperarPassword = async (req, res) => {
                 <h4 style='color:black;'>Si no requieres cambio de contraseña o no has sido quien lo ha
                     solicitado,<br>simplemente
                     ignora este mensaje!</h4>
-                <h4>Contacto: Perla Casco, Directora Ejecutiva<br>#: (+504)2283-0967 | (+504)8824-2342</h4>
             </center>`,
       });
    } catch (error) {
@@ -108,9 +107,8 @@ const recuperarPassword = async (req, res) => {
 
 const passwordPreguntas = async (req, res) => {
    const correo = req.body.correo;
-   const respuesta = req.body.respuesta;
+   const resp = req.body.respuesta;
 
-   let verificarLink;
    try {
       // Modelo de datos de usuario
       const usuario = await getEmail(correo);
@@ -128,34 +126,29 @@ const passwordPreguntas = async (req, res) => {
       //   obtener las respuestas de la BD
       const respuestas = await getRespuestas(usuario.id_usuario);
 
-      //   Validar que existan respuestas en la BD
-      if (respuesta === respuestas.respuesta_1 && respuesta !== respuestas.respuesta_2) {
-         // // Generar el token
-         const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
-
-         // Generar la url para actualizar la contraseña
-         verificarLink = `http://${req.headers.host}/auth/new_password`;
-         // console.log(verificarLink);
-
-         // Guardar el token en la Base de Datos
-         await postToken(token, usuario.id_usuario);
-
-         res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', token });
-      } else if (respuesta === respuestas.respuesta_2 && respuesta !== respuestas.respuesta_1) {
-         // // Generar el token
-         const token = await generarJwtPassword(usuario.id_usuario, usuario.user, usuario.indicador_usuario);
-
-         // Generar la url para actualizar la contraseña
-         verificarLink = `http://${req.headers.host}/auth/new_password`;
-         // console.log(verificarLink);
-
-         // Guardar el token en la Base de Datos
-         await postToken(token, usuario.id_usuario);
-
-         res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', token });
-      } else {
+      if (!respuestas) {
          return res.status(400).json({ message: 'El usuario es incorrecto' });
       }
+
+      // Verificar la contraseña
+      const respuesta = bcryptjs.compareSync(resp, respuestas.respuesta_1) || bcryptjs.compareSync(resp, respuestas.respuesta_2);
+
+      //   Validar que existan respuestas en la BD
+      if (!respuesta) {
+         return res.status(400).json({ message: 'Su información es incorrecta' });
+      }
+
+      // // Generar el token
+      const token = await generarJwtPassword(usuario.id_usuario, usuario.nombre_usuario, usuario.indicador_usuario);
+
+      // Generar la url para actualizar la contraseña
+      verificarLink = `http://${req.headers.host}/auth/new_password`;
+      // console.log(verificarLink);
+
+      // Guardar el token en la Base de Datos
+      await postToken(token, usuario.id_usuario);
+
+      res.status(200).json({ message: 'Ya puedes cambiar tu contraseña', token });
    } catch (error) {
       console.log(error);
       return res.status(500).json({ message: 'Hable con el Administrador' });

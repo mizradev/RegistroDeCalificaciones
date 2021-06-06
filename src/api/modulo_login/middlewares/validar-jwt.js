@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { getUsuario } = require('../model/users');
 
 const validarJWT = async (req = request, res = response, next) => {
-   const authorization = req.headers.authorization.split(' ')[1];
+   const authorization = req.headers.authorization;
 
    // Verificar que el token exista
    if (!authorization) {
@@ -14,7 +14,6 @@ const validarJWT = async (req = request, res = response, next) => {
 
    try {
       const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
-      // console.log(uid, estado);
 
       // Consultar si el usuario existe en la base de datos
       const usuario = await getUsuario(uid);
@@ -30,9 +29,8 @@ const validarJWT = async (req = request, res = response, next) => {
 
       next();
    } catch (error) {
-      console.log(error);
       res.status(401).json({
-         msg: 'No tienes autorización',
+         messag: 'No tienes autorización',
       });
    }
 };

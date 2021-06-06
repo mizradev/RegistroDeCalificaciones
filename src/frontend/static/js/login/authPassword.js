@@ -10,7 +10,7 @@
          const password = $('#password').val();
          const password2 = $('#password2').val();
 
-         if (password.length === password2.length) {
+         if (password === password2) {
             // Guardamos el token en el headers para enviarlo por axios
             const headers = { Authorization: `Bearer ${token}` };
 
@@ -19,7 +19,7 @@
             };
 
             try {
-               const res = (await axios.put(`/api/auth/nuevaContrasenia`, datos, { headers })).data;
+               const res = (await axios.put(`/api/v1/auth/nuevaContrasenia`, datos, { headers })).data;
 
                Swal.fire({
                   icon: 'success',

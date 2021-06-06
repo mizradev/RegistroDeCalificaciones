@@ -4,7 +4,7 @@
 
    const getPreguntas = async () => {
       try {
-         const res = await axios.get('/api/preguntas');
+         const res = await axios.get('/api/v1/auth/preguntas');
 
          // guradamos los datos
          userData = res.data;
