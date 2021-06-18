@@ -1,0 +1,509 @@
+
+    <!-- Content Header (Page header) -->
+    <div class="content-header mt-5">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Registro Personas</h1>
+
+                </div>
+                <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">aggUsuario</li>
+            </ol>
+          </div><!-- /.col -->
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <section class="content ">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Default box -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            
+                            
+        <div class="modal-content ">
+ 
+
+
+            <!-- form -->
+            <form  name="formulario" id= "formulario" method="POST"  action="" class="formulario" >
+                 <div class="col-lg-12">
+            <div class="alert alert-light" role="alert">
+              <BR>
+              
+              <BR>
+              <span class="text"></span><BR><BR>
+              <a href="./Datospersonas" class="btn btn-primary">Datos Personas</a>
+            <BR><BR>
+            </div>
+          </div>
+                <!-- @csrf -->
+                <div class="formulario__grupo " method="POST" action="" id="grupo">
+                <div class="modal-header bg-primary ">
+                    <h4 class="modal-title ">
+                        Crear nuevo usuario
+                    </h4>
+                    
+                </div>
+           
+                <!-- end modal header -->
+                 
+                      <!-- numero identidad-->
+                      <h5>Datos personales</h5>
+                    <div class="form-group row">
+                   <div class="col-xs-3">    
+                    <div class="modal-body">
+                         <label for="ex1">Numero Identidad</label>
+                  <div class="input-group mb-3">
+               
+                        
+                        <div class="input-group-append input-group-text "  >
+                            <i class="justyfy-content-center fas fa-user"></i>
+                            
+                        </div>
+                       
+                        
+                        <input  type="numero" id="identidad"  class="form-control" placeholder="N.Identidad"   maxlength="15" name="identida"
+                             required autocomplete="name"   maxlength="12 " minlength="6"autofocus="" >
+                        <span class="invalid-feedback" role="alert" >
+                            <strong>message</strong>
+                        </span>
+                       
+                  
+                   </div>
+                    </div>
+                   </div>
+                   
+                    <!-- Nombre -->
+                    
+                   <div class="col-xs-3">
+                    <div class="modal-body">
+                <label for="ex2">Nombre</label>
+                  <div class="input-group mb-3">
+                  
+                        <div class="input-group-append input-group-text">
+                            <i class="justyfy-content-center fas fa-user"></i>
+                        </div>
+
+                        <input  id="nombre" type="text" class="form-control" placeholder="Nombre completo" name="nombre"
+                            required  autocomplete="name" autofocus >
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong>message</strong>
+                        </span>
+                  </div>
+                    </div>
+                   </div>
+                   
+                    
+                  
+                     <!-- Edad-->
+                     
+                 
+                <div class="col-xs-2">          
+                    <div class="modal-body">     
+                    <label for="ex1">Edad</label>  
+                  <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        
+                        <input  id="edad" type="num" class="form-control" placeholder="edad" name="edad"
+                            required autocomplete="name" maxlength="2 " minlength="1" autofocus>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>message</strong>
+                        </span>
+                        </div>
+                    </div>
+                 </div>
+                    </div>
+                         
+
+                     <!-- Genero -->
+                <div class="form-group row">
+                   <div class="col-xs-3">
+                    <div class="modal-body">
+                        <label for="ex1">Genero</label>
+                     <div class="input-group mb-3"> 
+                        <div class="input-group-append input-group-text">
+                            <i class="fas fa-list-ul"></i>
+                        </div>
+
+                        <select   name="genero" id="genero" required class="form-control">
+                            <option value="" selected disabled hidden>- Selecciona un genero -</option>
+                            <option value="F">Femenino</option>
+                            <option value="M">Masculino</option>
+                            
+                        </select>
+                     </div>
+                    </div>
+                   </div>
+                    
+
+                    <!-- Estado Civil -->
+                         <div class="col-xs-3">
+                           <div class="modal-body">
+                        <label for="ex1">Estado Civil</label>
+                            <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <i class="fas fa-list-ul"></i>
+                        </div>
+                         <select  name="estado_civil" id="estado_civil"required class="form-control">
+   
+                            <option value=""selected disabled hidden>- Selecciona el estado civil -</option>
+                            <option value="S">Soltera</option>
+                            <option value="C">Casada</option>
+                            <option value="V">Viudo</option>
+                            <option value="D">Divorciado</option>     
+                        </select>
+                            </div>
+                    </div>
+                 </div>
+                     
+                          <!-- Fecha de nacimiento -->
+
+                       <div class="col-xs-3">
+                           <div class="modal-body">
+                               <label for="ex1">Fecha Nacimiento</label>
+                               <div class="input-group mb-3">
+                    
+                        <div class="input-group-append input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        
+                        <input  id="fecha_nacimiento" type="date" class="form-control" placeholder="Fecha nacimiento" name="fecha_nacimiento"
+                            required autocomplete="name" autofocus>
+                        <span class="invalid-feedback" role="alert">
+                            <strong>message</strong>
+                        </span>
+                     </div>
+                    </div>
+                     </div>
+                    </div>
+
+                     <!-- Datos de contacto -->
+              <div class=" dropdown-divider" role="separator"></div>
+                        <h5>Datos de contacto</h5>
+               
+                   
+                    <!-- Numero telefono -->
+                    <div class="form-group row">
+                   <div class="col-xs-3">
+                    <div class="modal-body"> 
+                 <label for="ex2">Telefono </label>     
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+      
+                        <input   id="numeroTel" type="numero" class="form-control" placeholder="Numro Telefono" name="numeroTel" action="" value="" min="7" max="9"  action="" required
+                            autocomplete="numeroTel"  >
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong>message</strong>
+                        </span>
+                    </div>
+                    </div>
+                   </div>
+                   
+                   <!--Tipo Telefono-->
+                   <div class="col-xs-3">
+                           <div class="modal-body">
+                        <label for="ex1">Tipo Telefono</label>
+                            <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <i class="fas fa-list-ul"></i>
+                        </div>
+
+                         <select  name="tipo_telefono" id="tipo_telefono"required class="form-control">
+   
+                            <option value=""selected disabled hidden>- Selecciona el tipo telefono -</option>
+                             <option value="C">Celular</option>
+                            <option value="F">Fijo</option>
+                           
+                       
+                        </select>
+                            </div>
+                    </div>
+                 </div>
+                    
+                  <!-- Email -->
+                  
+                  <div class="col-xs-3">
+                    <div class="modal-body">
+                         <label for="ex2">Corrreo Electro</label>
+                    <div class="input-group mb-3">
+                        <div class=" input-group-append input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+
+                        <input  id="email" type="email" class=" form-control" placeholder="correo@correo.com"   name="correo" required
+                            autocomplete="email"  maxlength="18 " minlength="6">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong>message</strong>
+                        </span>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                  
+                     <!-- Direccion -->
+                    <div class="form-group row">
+                   <div class="col-xs-3">
+                    <div class="modal-body">
+                        <label for="ex2">Direccion</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                           <i class="fas fa-location-arrow"></i>
+                        </div>
+
+                        <input    id="direccion" type="Direccion" class="form-control" placeholder="Direccion" name="direccion" required
+                            autocomplete="direccion">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong>message</strong>
+                        </span>
+                    </div>
+                    </div>
+                    </div>
+                     <!-- Tipo Usuario Roles-->
+                   <div class="col-xs-3">
+                    <div class="modal-body">
+                        <label for="ex2">Tipo usuario</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-append input-group-text">
+                            <i class="fas fa-list-ul"></i>
+                        </div>
+
+                         <select  name="Tipo_riol" id="Tipo_riol"required class="form-control">
+                              <option value=""selected disabled hidden>- Selecciona el tipo Rol -</option>
+                            <option value="1">Administrador</option>
+                            <option value="2">Docente</option>
+                            <option value="3">Estudiante</option>
+                       
+                        
+                        </select>
+                         
+                            </div>
+                    </div>
+                 </div>
+                    </div>
+
+                    <!--Datos adicionales de usuarios-->
+                    <!--Puesto Administrador-->
+                    <div class="form-group row">
+                    <div class="col-xs-3">
+                           <div class="modal-body"> 
+                               <label for="ex1">Puesto</label>
+                                 <div class="input-group mb-3">
+                                 <div class=" input-group-append input-group-text">
+                                 <i class="justyfy-content-center fas fa-user"></i>
+                                    </div>
+
+                                    <input id="puesto"  type="puesto" class=" form-control" placeholder="Puesto"   name="puesto" required 
+                                                                                                         autocomplete="puesto" disabled >
+
+                                      <span class="invalid-feedback" role="alert">
+                                         <strong>message</strong>
+                                             </span>
+
+                                        </div>
+                                     </div>                                                        
+                                    </div>
+
+                            <!--Facultad  Docente-->
+                            <div class="col-xs-3">
+                           <div class="modal-body"> 
+                               <label for="ex1">Facultad</label>
+                                 <div class="input-group mb-3">
+                                 <div class=" input-group-append input-group-text">
+                                 <i class="justyfy-content-center fas fa-user"></i>
+                                    </div>
+
+                                    <input id="facultad" type="facultad" class=" form-control" placeholder="Facultad"   name="facultad" required
+                                                                                                         autocomplete="facultad" disabled>
+
+                                      <span class="invalid-feedback" role="alert">
+                                         <strong>message</strong>
+                                             </span>
+
+                                        </div>
+                                     </div>                                                        
+                                    </div>
+                            <!--Especialidad-->
+                             <div class="col-xs-3">
+                           <div class="modal-body"> 
+                               <label for="ex1">Especialidad</label>
+                                 <div class="input-group mb-3">
+                                 <div class=" input-group-append input-group-text">
+                                 <i class="justyfy-content-center fas fa-user"></i>
+                                    </div>
+
+                                    <input id="especialidad" type="especialidad" class=" form-control" placeholder="Especialidad"   name="especialidad" required
+                                                                                                         autocomplete="especialidad" disabled>
+
+                                      <span class="invalid-feedback" role="alert">
+                                         <strong>message</strong>
+                                             </span>
+
+                                        </div>
+                                     </div>                                                        
+                                    </div>
+                                     </div>
+                            <!--Datos estudiante-->
+                            <div class="form-group row">
+                            <div class="col-xs-3">
+                           <div class="modal-body"> 
+                               <label for="ex1">Numero de cuenta o numero empliado</label>
+                                 <div class="input-group mb-3">
+                                 <div class=" input-group-append input-group-text">
+                                 <i class="justyfy-content-center fas fa-user"></i>
+                                    </div>
+
+                                    <input id="_numero_emp_est" type="_numero_emp_est" class=" form-control" placeholder="Numero cuenta"   name="_numero_emp_est" required
+                                                                                                         autocomplete="_numero_emp_est" disabled>
+
+                                      <span class="invalid-feedback" role="alert">
+                                         <strong>message</strong>
+                                             </span>
+
+                                        </div>
+                                     </div>                                                        
+                                    </div>
+                                
+                   
+                    
+                    
+                    <!-- foto -->
+                      <div class="modal-body">
+                      <!-- Codigo para subir una imagen al perfil -->
+                          <div class ="container">
+                              <img id="img-view"src="../../img/placeholder.png" class="img-thumbnail" width="100" height="50">
+                              <div class="card-footer col-sm-5">
+                                  <div class="form-group">
+                                      <input type="file" name= "photousuario" id= "file">
+                                      <br>
+                                <progress id="progres-igm" value="0"  max="100" style="heigt: 20px; width:100%;"></progress>
+
+                                  </div>
+                              </div>
+                          </div>
+            
+                         </div>
+           
+                   <div class="dropdown-divider" role="separator"></div>
+                   <div class="dropdown-divider" role="separator"></div>
+                   <div class="dropdown-divider" role="separator"></div>
+
+                    
+                                                  <div class="dropdown-divider" role="separator"></div>
+                                                        <section id="User">
+                                                            <h5 class= "center">Datos de usuario</h5><!-- input dirección -->
+                                                            <div class=" row">
+                                                 
+                                                   <!-- Usuario -->
+                                                   <div class="form-group row">
+                                                     <div class="col-xs-3">
+                                                             <div class="modal-body">
+                                                             <label for="ex1">Usuario</label>
+                                                                 <div class="input-group mb-3">
+                                                                  <div class="input-group-append input-group-text">
+                                                                  <i class="justyfy-content-center fas fa-user"></i>
+                                                                   </div>
+                        
+                                                                 <input id="usuario" type="text" class="form-control" placeholder="usuario" name="usuario"
+                                                                   required autocomplete="name" autofocus>
+                                                                    <span class="invalid-feedback" role="alert">
+                                                                      <strong>message</strong>
+                                                                    </span>
+                                                                 </div>
+                                                            </div>
+                                                     </div>
+                                                            
+                                                            <!--Contraseña-->
+                                                            <div class="col-xs-3">
+                                                                 <div class="modal-body">
+                                                                <label for="ex1">Contraseña</label>
+                                                                 <div class="input-group mb-3">
+                                                                  <div class="input-group-append input-group-text">
+                                                                     <i class="fas fa-key"></i>
+                                                                        </div>
+
+                                                                    <input id="password" type="password" class="form-control" name="password" 
+                                                                    placeholder="password" maxlength="15 " minlength="4" required >
+                                                                     <span class="invalid-feedback" role="alert" >
+                                                                      <strong>message</strong>
+                                                                    </span>  
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+ 
+                                                         <!--Usuario que resgitro a la persona-->
+                                                         <div class="col-xs-3">
+                                                              <div class="modal-body"> 
+                                                                  <label for="ex1">Usuario que registro la persona</label>
+                                                              <div class="input-group mb-3">
+                                                                <div class=" input-group-append input-group-text">
+                                                                  <i class="justyfy-content-center fas fa-user"></i>
+                                                               </div>
+
+                                                                 <input id="user_registro" type="user_registro" class=" form-control" placeholder="User_Registro"   name="user_registro" required
+                                                                    autocomplete="user_registro">
+
+                                                                   <span class="invalid-feedback" role="alert">
+                                                                    <strong>message</strong>
+                                                              </span>
+
+                                                               </div>
+                                                              </div>                                                        
+                                                            </div>
+                                                   </div>
+
+                    
+
+                   </div>
+                   
+                </div>
+                <!-- end modal body -->
+                  <div class="dropdown-divider" role="separator"></div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+                          <input id="button"type="salir" class="btn btn-danger" value= "Cancelar">
+                      
+                    </div>
+                    <div>
+                        <input id="guardar"type="submit" class="btn btn-primary" value= "Guardar">
+                            
+                       <p class = "warnings" id="warnings"></p>
+                       
+                    </div>
+                </div>
+                <!-- end modal footer -->
+                </div>
+        </form>
+            <!-- end form modal -->
+
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- end modal  crear usuarios-->
+
+<!-- Ventana modal para editar usuarios -->
+
+    <!-- Scrip Validaciones-->
+
+
+</div>
+ {{!-- <script src="../js/Usuario/validaciones.js"></script> --}}
+<!-- Fin Ventana modal para editar usuarios -->

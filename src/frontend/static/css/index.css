@@ -43,6 +43,16 @@ body {
    padding: 0;
 }
 
+/* validacion */
+.warnings{
+   width: 200px;
+   text-align: center;
+   margin: auto;
+   color: #B06AB3;
+   padding-top: 20px;
+}
+
+
 @media (min-width: 992px) {
    .masthead {
       height: 100vh;
@@ -50,4 +60,10 @@ body {
    .masthead h1 {
       font-size: 5.5rem;
    }
+
+   .formulario {
+      display:grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px;
+  }
 }

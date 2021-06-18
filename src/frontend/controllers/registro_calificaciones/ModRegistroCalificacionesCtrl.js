@@ -4,10 +4,9 @@ exports.pantalla_inicio = (req, res) => {
         registroCalificaciones: true
     })
 }
-
-exports.pantalla_2 = (req, res) => {
-    res.render('modulos/registro-calificaciones/pantalla2',{
-        nombrePagina: 'Pantalla de Prueba',
-        pantalla2: true,
-    })
-}
+//exports.pantalla_inicio = (req, res) => {
+  //  res.render('modulos/Usuario/Administrador', {
+     //   nombrePagina: 'Administrador',
+       // registroCalificaciones: true
+    //})
+//}

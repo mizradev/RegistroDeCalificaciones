@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Calificaciones</title>
+    <!-- {{!-- GOOGLE FONTS --}} -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- {{!-- BOOTSTRAP 4 --}} -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- {{!-- FONT AWESOME 5 --}} -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- {{!-- STYLES --}} -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="row page-titles">
+                <div class="col-md-5 col-12 align-self-center">
+                    <h3 class="text-themecolor mb-0">Personas</h3>
+                    <ul class="breadcrumb mb-0 p-0 bg-transparent">
+                        <li class="breadcrumb-item active">Información de las Personas</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="widget-content searchable-container list">
+                    <div class="card card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+
+                            </div>
+                            <div class="col-md-8 text-right d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
+                                    <i class="fas fa-user-plus"></i>
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Agregar-->
+                    <div id="ModalAgregar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Agregar Persona</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
+                                <div class="modal-body card-body wizard-content">
+                                    <form action="bd/Insert_Persona.php" method="Post" class="" id="prueba">
+                                        <!-- Step 1 -->
+                                        <h5>Datos personales</h5>
+                                        <section>
+                                            <!-- input Nombre y Apellido -->
+                                            <div class="row">
+                                                <!-- input Nombre -->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Nombre"> Nombre : <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control" id="Nombre" name="Nombre" required>
+                                                    </div>
+                                                </div>
+                                                <!-- input Apellido -->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Apellido"> Apellido : <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control required" id="Apellido" name="Apellido" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- input Id y Edad -->
+                                            <div class="row">
+                                                <!-- input Id-->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Numero de ID"> Numero de ID: <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control required" id="Numero de ID" name="Numero de ID" required>
+                                                    </div>
+                                                </div>
+                                                <!-- input Edad -->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="TipoTel"> Genero : <span class="text-danger">*</span> </label>
+                                                        <select class="form-control" id="TipoTel" name="TipoTel" required>
+                                                            <option selected=""></option>
+                                                            <option value="1">Femenino</option>
+                                                            <option value="2">Maculino</option>
+                                                            <option value="3">Indefinido</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class=" dropdown-divider" role="separator"></div>
+                                        <h5>Datos de contacto</h5>
+                                        <section>
+                                            <!-- input Numero Télefono y Tipo -->
+                                            <div class="row">
+                                            <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Correo electronico "> Correo electronico : <span class="text-danger">*</span> </label>
+                                                        <input type="email" class="form-control" id="Correo electronico " name="Correo electronico " required>
+                                                    </div>
+                                                </div>
+                                            
+                                                <!-- input Numero Télefono -->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="Numero"> Numero Télefono : <span class="text-danger">*</span> </label>
+                                                        <input type="text" class="form-control" id="Numero" name="Numero" maxlength="9" required>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                
+                                            <!-- input Numero Télefono y Tipo -->
+                                            
+                                                <div class="dropdown-divider" role="separator"></div>
+                                        
+                                        <section>
+                                            <!-- input dirección -->
+                                            <div class="row">
+                                                <!-- input dirección -->
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="Dirrecion"> Dirreción : <span class="text-danger">*</span> </label>
+                                                        <textarea class="form-control" name="Dirrecion" id="Dirrecion" cols="30" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- inp
+                                            </div>ut Imagen -->
+                                            <div class="row">
+                                                <!-- input Imagen -->
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="Foto">Foto: <span class="text-danger">*</span> </label>
+                                                        <input type="file" class="form-control required" id="Foto" name="Foto" accept="Foto/*">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        
+                                                <!-- input Tipo -->
+                                                
+                                            </div>
+                                            <!-- input Estado Telefono  y Correo -->
+                                           
+                                                <!-- input Correo -->
+                                                
+                                            <!-- input tipo Correo y Estado Correo -->
+                                           
+                                       
+                                            <!-- input Tipo de Direccion Estado de Direccion -->
+                                           
+                                        <div class="dropdown-divider" role="separator"></div>
+                                        <h5>Tipo de Usuario</h5>
+                                        <ul class="nav nav-pills bg-white justify-content-center mb-3 rounded-pill align-items-center">
+                                            <li class="nav-item">
+                                                <a href="#Todas" data-toggle="tab" aria-expanded="false" class="nav-link  rounded-pill d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" onclick="Administrador();">
+                                                    <i class="fas fa-user-cog"></i>
+                                                    <span class="d-none d-md-block ml-2"> Administrador</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#Deportivas" data-toggle="tab" aria-expanded="true" class="nav-link  nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" onclick="Estusiante();">
+                                                    <i class="fas fa-user-graduate"></i>
+                                                    <span class="d-none d-md-block ml-2">Estudiante</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#Sociales" data-toggle="tab" aria-expanded="false" class="nav-link  nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" onclick="Docente();">
+                                                    <i class="fas fa-chalkboard-teacher"></i>
+                                                    <span class="d-none d-md-block ml-2">Docente</span>
+                                                </a>
+
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <!-- Admin -->
+                                            <div class="tab-pane show " id="Todas">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <br>
+                                                        <h5>Datos de Administrador</h5>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label for="FacultadAdmin"> Facultad donde Trabaja: <span class="text-danger">*</span> </label>
+                                                                    <select class="form-control" id="FacultadAdmin" name="FacultadAdmin">
+                                                                        <option selected=""></option>
+                                                                        <?php
+                                                                        $FacultadAdmin = $conexion->query("SELECT`Nom_Facultad`  FROM `Facultades`")->fetchAll(PDO::FETCH_OBJ);
+                                                                        foreach ($FacultadAdmin as $FacultadAdmin) :
+                                                                            echo '<option value="' . $FacultadAdmin->Nom_Facultad . '">' . $FacultadAdmin->Nom_Facultad . '</option>';
+                                                                        endforeach;
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label for="PuestoAdmin"> Puesto : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="PuestoAdmin" name="PuestoAdmin"></div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="dropdown-divider" role="separator"></div>
+                                                        <section id="User">
+                                                            <h5>Datos de usuario</h5><!-- input dirección -->
+                                                            <div class=" row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group"><label for="UsuarioAdmin"> Nombre de usuario : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="UsuarioAdmin" name="UsuarioAdmin"></div>
+                                                                </div>
+                                                            </div><!-- input Estado Telefono  y Correo -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group"><label for="Password"> Password : <span class="text-danger">*</span> </label><input type="password" class="form-control" id="PasswordAdmin" name="PasswordAdmin"></div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                <div class="form-group"><label for="PuestoAdmin"> N° Empleado : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="PuestoAdmin" name="PuestoAdmin"></div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        </section>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  Estudiante -->
+                                            <div class="tab-pane" id="Deportivas">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <br>
+                                                        <h5>Datos de Estudiante</h5><!-- input dirección -->
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label for="NumeroEstu"> Numero de cuenta: <span class="text-danger">*</span> </label><input type="text" class="form-control" id="NumeroEstu" name="NumeroEstu"></div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label for="CentroEstu"> Centro Regional : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="CentroEstu" name="CentroEstu"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label for="FacultadEstu"> Facultad: <span class="text-danger">*</span> </label>
+                                                                    <select class="form-control" id="FacultadEstu" name="FacultadEstu">
+                                                                        <option selected=""></option>
+                                                                        <?php
+                                                                        $FacultadEstu = $conexion->query("SELECT`Cod_Facultad`,`Nom_Facultad`  FROM `Facultades`")->fetchAll(PDO::FETCH_OBJ);
+                                                                        foreach ($FacultadEstu as $FacultadEstu) :
+                                                                            echo '<option value="' . $FacultadEstu->Cod_Facultad . '">' . $FacultadEstu->Nom_Facultad . '</option>';
+                                                                        endforeach;
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label for="CarreraEstu"> Carrera : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="CarreraEstu" name="CarreraEstu"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label for="ModalidadEstu"> Modalidad : <span class="text-danger">*</span> </label><select class="form-control" id="ModalidadEstu" name="ModalidadEstu">
+                                                                        <option selected=""></option>
+                                                                        <option value="P">Presencial</option>
+                                                                        <option value="D">Distancia</option>
+                                                                    </select></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="dropdown-divider" role="separator"></div>
+                                                        <section id="User">
+                                                            <h5>Datos de usuario</h5><!-- input dirección -->
+                                                            <div class=" row">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group"><label for="UsuarioEstu"> Nombre de usuario : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="UsuarioEstu" name="UsuarioEstu"></div>
+                                                                </div>
+                                                            </div><!-- input Estado Telefono  y Correo -->
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group"><label for="PasswordEstu"> Password : <span class="text-danger">*</span> </label><input type="password" class="form-control" id="PasswordEstu" name="PasswordEstu"></div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group"><label for="EstadoUserEstu"> Estado : <span class="text-danger">*</span> </label><select class="form-control" id="EstadoUserEstu" name="EstadoUserEstu">
+                                                                            <option selected=""></option>
+                                                                            <option value="1">Activo</option>
+                                                                            <option value="2">Inactivo</option>
+                                                                        </select></div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  Docente -->
+                                            <div class="tab-pane" id="Sociales">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <br>
+                                                        <h5>Datos de Docente</h5>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label for="NumeroEstu"> Especialidad: <span class="text-danger">*</span> </label><input type="text" class="form-control" id="NumeroEstu" name="NumeroEstu"></div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group"><label for="CentroEstu"> N° Empleado : <span class="text-danger">*</span> </label><input type="text" class="form-control" id="CentroEstu" name="CentroEstu"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label for="FacultadDoce"> Facultad: <span class="text-danger">*</span> </label>
+
+                                                                    <select class="form-control" id="FacultadDoce" name="FacultadDoce" required>
+                                                                        <option selected=""></option>
+                                                                        <?php
+                                                                        $Facultad = $conexion->query("SELECT `Cod_Facultad`,`Nom_Facultad`  FROM `Facultades`")->fetchAll(PDO::FETCH_OBJ);
+                                                                        foreach ($Facultad as $FacultadDoce) :
+                                                                            echo '<option value="' . $FacultadDoce->Cod_Facultad . '">' . $FacultadDoce->Nom_Facultad . '</option>';
+                                                                        endforeach;
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label for="DepartamentoDoce"> Departamento : <span class="text-danger">*</span> </label>
+                                                                    <select class="form-control" id="DepartamentoDoce" name="DepartamentoDoce" required>
+                                                                        <option selected=""></option>
+                                                                        <?php
+                                                                        $DepartamentoDoce = $conexion->query("SELECT `Cod_Departamento`,`Nom_Departamento`  FROM `Departamentos`")->fetchAll(PDO::FETCH_OBJ);
+                                                                        foreach ($DepartamentoDoce as $DepartamentoDoce) :
+                                                                            echo '<option value="' . $DepartamentoDoce->Cod_Departamento . '">' . $DepartamentoDoce->Nom_Departamento . '</option>';
+                                                                        endforeach;
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group"><label for="JornadaDoce"> Jornada : <span class="text-danger">*</span> </label>
+                                                                    <select class="form-control" id="JornadaDoce" name="JornadaDoce" required>
+                                                                        <option selected=""></option>
+                                                                        <?php
+                                                                        $JornadaDoce = $conexion->query("SELECT `Cod_Jornada`,`Nom_Jornada`  FROM `Jornadas`")->fetchAll(PDO::FETCH_OBJ);
+                                                                        foreach ($JornadaDoce as $JornadaDoce) :
+                                                                            echo '<option value="' . $JornadaDoce->Cod_Jornada . '">' . $JornadaDoce->Nom_Jornada . '</option>';
+                                                                        endforeach;
+                                                                        ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button id="btn-add" type="submit" class="btn btn-success float-right">Agregar</button>
+                                        <input type="text" class="form-control" id="Puesto" value="1" name="Puesto" hidden>
+                                    </form>
+                                </div>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div>
+
+    <!-- {{!-- SCRIPTS --}} -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
