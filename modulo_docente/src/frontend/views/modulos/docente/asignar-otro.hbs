@@ -1,0 +1,113 @@
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+             <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/examen">Examen</a></li>
+              <li class="breadcrumb-item"><a href="/prueba">Prueba</a></li>
+              <li class="breadcrumb-item"><a href="/asignar-tareas">Tareas</a></li>
+              <li class="breadcrumb-item"> <a href="/asignar-otro">Otros</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid --> 
+    </div>
+
+
+<div class="card card-primary p-5">
+
+               <BR>
+              <h1 style="font-size: 3rem;" class="title">Otras actividades</h1>
+              <BR>
+               <p>
+               </p>
+          <!-- /.card-header -->
+                <div class="card-header">
+               <p>  </p>
+               <h3 class="card-title">FORMULARIO PARA ASIGNAR OTRAS ACTIVIDADES</h3>
+              </div>
+             
+       <div class="card-body p-5">
+          <form id="FormularioOtrasactividades">
+               <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Ingrese el codigo de la clase:</label>
+                    <input required id="codigoClaseOtro"class="form-control" type="text" placeholder="">
+                </div>
+                </div>
+                <div class="col-sm-6">
+                <div class="form-group">
+                <label for="exampleInputPassword1">Ingrese el codigo de la seccion:</label>
+                    <input required id="codigoSeccionOtro" type="number" class="form-control" placeholder="">
+                </div>
+                </div>
+                <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Ingrese el nombre de la tarea:</label>
+                    <input required type="text" class="form-control" id="nombreOtraactividad" placeholder="">
+                </div>
+                </div>
+
+                  <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="e">Puntaje %:</label>
+                    <input required type="number" class="form-control" id="puntajeTareaOtro" placeholder="">
+                </div>
+                </div>
+                  
+
+                     <div class="col-sm-6">
+                     <label> Fecha limite de entrega</label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input id="fechaFinOtro" type="date" class="form-control" placeholder="Fecha finalizacion" name="fechaFin"
+                            required autocomplete="name" autofocus>
+                        <span class="invalid-feedback" role="alert"> 
+                            
+                        </span>
+                    </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Descripcion</label>
+                        <textarea required  id="descripForo"class="form-control" rows="3" placeholder=""></textarea>
+                      </div>
+                    </div>
+                </div>
+                     
+                <div class="float-sm-left">
+                    <td>
+                        <label for="">Subir archivos</label> <p>
+
+                          <input type="file" name="archivo" id="archivo">
+                        </div>
+
+                        <img class="preVisualizarImg img-fluid rounded-circle py-2 w-25 mx-auto d-block"
+                            src="" alt="">
+                    </div>
+
+                    </p>
+
+                    </td>
+
+                     <div class=class="float-sm-left"> 
+                    <button type="submit" class="btn btn-primary" id="btnGuardar_otrasactividades"><i class="fa fa-save"></i> Guardar </button>
+
+                   </div>
+                   </form>
+                     
+                </div>
+              
+                <div class="card-footer"> 
+            
+     </div>     
+              
+    </div>
+</div>
+
+           

@@ -1,0 +1,192 @@
+
+<!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">Planificar-curso</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="alert alert-light" role="alert">
+              <BR>
+              <h1 style="font-size: 2rem;" class="title">Planificación: {{nc}} </h1>
+                <a class="btn btn-success" style="cursor:pointer;" data-toggle="modal" data-target="#modal"><i class="fa fa-plus"></i>
+                            Agregar Actividades </a>
+                <a  style="cursor:pointer;"class="btn btn-primary" href="./plan-clase?id={{id}}&nc={{nc}}">Planificación de Clases</a>
+                <br><br>
+              <BR>
+                <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+               
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                  
+             <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
+                          <thead>
+                           <th>Cod.</th>
+                    <th>Tipo de Actividad</th>
+                    <th>Descripción</th>
+                    <th>Duración</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Finalización</th>
+                    <th>Puntaje</th>
+                    <th>Forma de trabajo</th>
+                    <th>Acciones</th>
+                            
+                          </thead>
+                          <tbody>                            
+                          </tbody>
+                          <tfoot>
+                         <th>Cod.</th>
+                    <th>Tipo de Actividad</th>
+                    <th>Descripción</th>
+                    <th>Duración</th>
+                    <th>Fecha de Inicio</th>
+                    <th>Fecha de Finalización</th>
+                    <th>Puntaje</th>
+                    <th>Forma de trabajo</th>
+                    <th>Acciones</th>
+                          </tfoot>
+                        </table>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+        
+    </section>
+            <BR><BR>
+            </div>
+          </div>
+        
+      
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+
+    
+
+    <!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  style="width: 100% !important;">
+  <div class="modal-dialog modal-xl" role="document" >
+    <div class="modal-content">
+      <div class="modal-header"style="background:#001F3F; color:white">
+        <h5 class="modal-title " id="exampleModalLabel">Gestiona Actividades
+
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     
+            <div class="panel-body" id="formularioregistros">
+              <form id="formulario">
+           
+
+                         <div class="col-md-12">  
+                                <div class="form-group">
+                                    <label for="actividad">Seleccione una actividad</label>
+                                    <select id="actividad" name="actividad" class="form-control" required>
+                                      <option value="0" selected disabled>Seleccione una opción</option>
+                                       <option value="EXAMEN">EXAMEN</option>
+                                       <option value="PRUEBA">PRUEBA</option>
+                                       <option value="TAREA">TAREA</option>
+                                       <option value="PROYECTO">PROYECTO</option>
+                                       <option value="OTROS">OTROS</option>
+                                      
+                                       
+                                    </select>
+                                </div>
+
+              <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Descripción </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="text" class="form-control" name="des_pc" id="des_pc"  maxlength="100" placeholder="Descripción" required>
+                            <input type="hidden"  name="id" id="id" >
+                          </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Duración En Dias</label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="number" class="form-control" name="duracion" id="duracion" max="15" min="1" placeholder="Duración" required>
+                          </div>
+
+  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Fecha de Inicio </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="date" class="form-control" name="fi" id="fi"  maxlength="100" placeholder="Fecha de Inicio" required>
+                          </div>
+                          <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Fecha Final </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="date" class="form-control" name="ff" id="ff"  maxlength="100" placeholder="Fecha Final" required>
+                          </div>
+
+
+  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Puntaje </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="number" max="100" class="form-control" value="10" min="1" name="puntaje" id="puntaje" required>
+                          </div>
+
+
+                                      
+                              <div class="col-md-12">  
+                                <div class="form-group">
+                                    <label for="ft">Forma de trabajo</label>
+                                    <select id="ft" name="ft" class="form-control" required>
+                          
+                                       <option value="INDIVIDUAL">INDIVIDUAL</option>
+                                       <option value="GRUPAL">GRUPAL</option>                                     
+                                    </select>
+                                </div>
+                                </div>
+                            
+
+                            <button class="btn btn-primary" type="submit" id="btnGuardar_contenidoExamen"><i class="fa fa-save"></i> Guardar</button>
+
+         </FORm>
+            </div>
+      </div>
+      <br><br><br>
+      <div class="modal-footer">
+      <div  id="insertaE" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ 
+                          </div>
+                         
+
+
+                          
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>X</b> Cerrar</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+

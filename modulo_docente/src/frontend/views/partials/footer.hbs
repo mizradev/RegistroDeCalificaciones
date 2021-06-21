@@ -1,0 +1,79 @@
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./js/adminlte.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+{{#if registroCalificaciones}}
+  <script src="../js/registro_calificaciones/calificaciones.js"></script>
+{{/if}}
+
+
+
+{{#if registroCalificaciones}}
+  <script src="../js/registro_calificaciones/calificaciones.js"></script>
+{{/if}}
+
+<!-- Modulo docente -->
+{{#if actividades}}
+  <script src="../js/modulo-docente/actividades.js"></script>
+{{/if}}
+
+{{#if examen}}
+  <script src="../js/modulo-docente/examen.js"></script>
+{{/if}}
+
+{{#if pruebas}}
+  <script src="../js/modulo-docente/prueba.js"></script>
+{{/if}}
+
+{{#if plan_curso}}
+  <script src="../js/modulo-docente/plan-curso.js"></script>
+{{/if}}
+
+{{#if planificar_curso}}
+  <script src="../js/modulo-docente/plan-cursos.js"></script>
+{{/if}}
+{{#if plan_clase}}
+  <script src="../js/modulo-docente/plan-clase.js"></script>
+{{/if}}
+
+{{#if cursosAsignados}}
+  <script src="../js/modulo-docente/cursosAsignados.js"></script>
+{{/if}}
+
+{{#if alumnosSeccion}}
+  <script src="../js/modulo-docente/alumnosporSeccion.js"></script>
+{{/if}}
+
+{{#if actividadesTareas}}
+  <script src="../js/modulo-docente/actividadesTareas.js"></script>
+{{/if}}
+
+{{#if Otras_Actividades}}
+  <script src="../js/modulo-docente/otrasActividades.js"></script>
+{{/if}}
+
+{{#if actividadesDisp}}
+  <script src="../js/modulo-docente/ActivDisponibles.js"></script>
+{{/if}}
+</body>
+</html>

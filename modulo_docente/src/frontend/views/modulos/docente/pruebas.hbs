@@ -1,0 +1,225 @@
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+             <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/examen">Examen</a></li>
+              <li class="breadcrumb-item"><a href="/prueba">Prueba</a></li>
+              <li class="breadcrumb-item"><a href="/asignar-tareas">Tareas</a></li>
+              <li class="breadcrumb-item"> <a href="/asignar-otro">Otros</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid --> 
+    </div>
+
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="alert alert-light" role="alert">
+              <BR>
+              <h1 style="font-size: 3rem;" class="title">Crear Pruebas</h1>
+
+              
+              <BR>
+                 
+               <form id="formulario" class="col-lg-12">
+                 <a class="btn btn-success" style="cursor:pointer;" data-toggle="modal" data-target="#modalPreguntas"><i class="fa fa-plus"></i>
+                             Agregar preguntas</a>
+                             <BR><BR></BR></BR>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Ingrese el codigo de la clase(*):</label>
+                             <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 validacion"></div>
+                             
+                            
+                            <input type="text" class="form-control" name="clase" id="clase"  maxlength="5" placeholder="codigo de la clase" required>
+                          </div>
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Ingrese el codigo de la seccion(*):</label>
+                             <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 validacion"></div>
+                             
+                            
+                            <input type="text" class="form-control" name="seccion" id="seccion"  maxlength="4" placeholder="codigo de la seccion" required>
+                          </div>
+
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Ingrese el titulo de la evaluacion(*):</label>
+                             <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 validacion"></div>
+                             
+                            
+                            <input type="text" class="form-control" name="titulo" id="titulo"  maxlength="45" placeholder="Titulo de la evaluacion" required>
+                          </div>
+
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label class="col-lg-6 col-md-6 col-sm-6 col-xs-12">Valor de la prueba %(*):</label>
+                             <div class=" col-lg-6 col-md-6 col-sm-6 col-xs-12 validacion"></div>
+
+                            <input type="number" class="form-control" name="valor" id="valor"  min="10" max ="100" step="5" value="10" placeholder="10-100" required>
+                          </div>
+
+                           <!-- Date and time -->
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <label>Fecha De La Prueba:</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="date" id="fecha" name="fecha" class="form-control datetimepicker-input" data-target="#reservationdatetime" required>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker" >
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <label> hora de inicio:</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="time" id="hi" name="hi" class="form-control datetimepicker-input" data-target="#reservationdatetime" required>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <label> hora de cierre:</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="time" id="hf" name="hf" class="form-control datetimepicker-input" data-target="#reservationdatetime" required>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <label>Duracion en minutos</label>
+                    <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                        <input type="number" id="duracion" name="duracion" class="form-control " value="10" max="90" min="10" required>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                           <button class="btn btn-primary" type="submit" id="btnGuardar_prueba"><i class="fa fa-save"></i> Guardar</button>
+                           </form>
+            <BR><BR>
+            </div>
+          </div>        
+          
+          
+    
+                           <br><br>
+         
+          
+              <!-- /.card-body -->
+            </div>
+          </div>
+       
+          </div>
+          <!-- /.col-md-6 -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+
+
+
+    <!-- Modal -->
+<div class="modal fade" id="modalPreguntas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document"  style="width: 70% !important;">
+    <div class="modal-content">
+      <div class="modal-header"style="background:#001F3F; color:white">
+        <h5 class="modal-title " id="exampleModalLabel">Gestiona Preguntas
+
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <input type="hidden" name="prueba_idLeccion" id="prueba_idLeccion" >
+
+      <input type="hidden" name="idpregunta" id="idpregunta" >
+            <div class="panel-body" id="formularioregistros">
+              <form id="formulario_modal">
+            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Pregunta(*):</label>
+                            <br><br> 
+            <input  type="text" class="form-control" name="pregunta" id="pregunta"  maxlength="100" placeholder="Realice una pregunta" required>
+
+              <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Respuesta #1 </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="text" class="form-control" name="respuesta1" id="respuesta1"  maxlength="100" placeholder="Respuesta #1" required>
+                          </div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Respuesta #2 </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="text" class="form-control" name="respuesta2" id="respuesta2"  maxlength="100" placeholder="Respuesta #2" required>
+                          </div>
+
+  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Respuesta #3 </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="text" class="form-control" name="respuesta3" id="respuesta3"  maxlength="100" placeholder="Respuesta #3" >
+                          </div>
+
+  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Respuesta #4 </label>
+                             <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 validacion"></div>
+                            <input type="text" class="form-control" name="respuesta4" id="respuesta4"  maxlength="100" placeholder="Respuesta #4" >
+                          </div>
+
+
+                                      
+                              <div class="col-md-12">  
+                                <div class="form-group">
+                                    <label for="correcta">Respuesta correcta</label>
+                                    <select id="correcta" name="correcta" class="form-control" required>
+                          
+                                       <option value="1">RESPUESTA  1</option>
+                                       <option value="2">RESPUESTA  2</option>
+                                       <option value="3">RESPUESTA  3</option>
+                                       <option value="4">RESPUESTA  4</option>
+                                       <option value="5">RESPUESTA  5</option>
+                                      
+                                       
+                                    </select>
+                                </div>
+
+
+
+
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                              <label>Puntaje(*):</label>
+                             
+                              <input type="number" class="form-control" name="puntaje" value="10" id="puntaje" min="1" max="10" step="1" required >
+                          </div>
+                         
+
+                            <button class="btn btn-primary" type="submit" id="btnGuardar_contenidoExamen"><i class="fa fa-save"></i> Guardar</button>
+
+         </form>
+            </div>
+      </div>
+      <br><br><br>
+      <div class="modal-footer">
+      <div  id="insertaE" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ 
+                          </div>
+                         
+
+
+                          
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>X</b> Cerrar</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+

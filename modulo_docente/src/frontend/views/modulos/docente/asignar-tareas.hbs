@@ -1,0 +1,126 @@
+      <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0"></h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+             <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="/examen">Examen</a></li>
+              <li class="breadcrumb-item"><a href="/prueba">Prueba</a></li>
+              <li class="breadcrumb-item"><a href="/asignar-tareas">Tareas</a></li>
+              <li class="breadcrumb-item"> <a href="/asignar-otro">Otros</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid --> 
+    </div>
+<div class="card card-primary p-5">  
+               <BR>
+              <h1 style="font-size: 3rem;" class="title">Asignar tareas</h1>
+
+              
+              <BR>
+               <p>
+               </p>
+
+                <div class="card-header">
+               
+               <h3 class="card-title">FORMULARIO PARA ASIGNAR TAREAS</h3>             
+               </div>
+
+               
+              <!-- /.card-header -->
+       <div class="card-body p-5">
+
+               <form id="FormularioTareas">
+               <div class="col-sm-6">
+                <div class="form-group-center">
+                    <label for ="">Ingrese el codigo de la clase aqui:</label>
+                    <input required id="codigoClase"class="form-control" type="text" placeholder="">
+                </div>
+                </div>
+                <div class="col-sm-6">
+                <div class="form-group-center">
+                <label for="">Ingrese el codigo de la seccion aqui:</label>
+                    <input required type="number" class="form-control" id="codigoSeccion" placeholder="">
+                </div>
+                </div>
+
+                <div class="col-sm-6">
+                <div class="form-group-center">
+                    <label for="e">Ingrese el nombre de la tarea aqui:</label>
+                    <input required type="text" class="form-control" id="nombreTarea" placeholder="">
+                </div>
+                </div>
+                <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="e">Puntaje de la tarea %:</label>
+                    <input required type="number" class="form-control" id="puntajeTarea" placeholder="">
+                </div>
+                </div>
+
+                     <div class="col-sm-6">
+                     <label> Fecha limite de entrega </label>
+                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                        <input id="fechalimite" type="date" class="form-control" placeholder="Fecha finalizacion" name="fechaFin"
+                            required autocomplete="name" autofocus>
+                        <span class="invalid-feedback" role="alert"> 
+                            
+                        </span>
+                    </div>
+                    </div>
+
+                 
+                    <div class="col-sm-6">
+                    <label> Hora limite </label>
+                    <div class="input-group date" id="timepicker" data-target-input="nearest">
+                      <input id="horaFin" type="time" class="form-control" placeholder="Fecha finalizacion" name="fechaFin"
+                         autocomplete="name" autofocus>
+                        <span class="invalid-feedback" role="alert"> 
+                            
+                        </span>
+                      </div>
+                      </div> 
+
+                <div class="row">
+                    <div class="col-sm-6">
+                      <!-- textarea -->
+                      <div class="form-group">
+                        <label>Descripcion de la tarea</label>
+                        <textarea required  id="descripTareas" class="form-control" rows="5" placeholder=""></textarea>
+                      </div>
+                    </div>
+                </div>
+                     
+
+               
+                <div class="float-sm-left">
+                    <td>
+                        <label for="">Subir archivos</label> <p>
+
+                          <input type="file" name="actividad">
+                        </div>
+
+                        <img class="preVisualizarImg img-fluid rounded-circle py-2 w-25 mx-auto d-block"
+                            src="" alt="">
+                    </div>
+                        </p>
+
+                        
+                    </td>
+                      <div class="float-sm">
+                         <button type="submit" class="btn btn-primary" id="btnGuardar_tareas"><i class="fa fa-save"></i> Guardar </button>
+                      </div>
+
+                       </div>
+              </form>
+                </div>
+           
+    </div>
+
+      
+</div>
+
+
+          
