@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: '/var/.envRecaliProd' });
 const mysql = require('mysql');
 const { promisify } = require('util');
 
