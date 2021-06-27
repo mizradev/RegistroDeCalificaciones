@@ -6,8 +6,10 @@ const app = express();
 // enviroments vars
 if(process.env.NODE_ENV === 'production'){
    require('dotenv').config({ path: '/var/.envRecaliProd' });
+   console.log('Enviroment on PRODUCTION');
 }else{
    require('dotenv').config();
+   console.log('Enviroment on DEVELOPMENT');
 }
 
 // handlebars engine view
