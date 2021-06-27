@@ -33,6 +33,7 @@ app.use('/', require('./src/frontend/routes'));
 
 // Route api
 app.use('/api/v1/auth', require('./src/api/modulo_login/routes'));
+app.use('/api/v1/usuario', require('./src/api/usuario/routes'));
 
 //Starting the server
 app.listen(app.get('port'), () => console.log(`server on port http://localhost:${app.get('port')}`));
