@@ -1,4 +1,10 @@
-require('dotenv').config({ path: '/var/.envRecaliProd' });
+
+if(process.env.NODE_ENV === 'production'){
+   require('dotenv').config({ path: '/var/.envRecaliProd' });
+}else{
+   require('dotenv').config();
+}
+
 const mysql = require('mysql');
 const { promisify } = require('util');
 

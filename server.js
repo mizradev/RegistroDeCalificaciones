@@ -4,7 +4,11 @@ const path = require('path');
 const app = express();
 
 // enviroments vars
-require('dotenv').config({ path: '/var/.envRecaliProd' });
+if(process.env.NODE_ENV === 'production'){
+   require('dotenv').config({ path: '/var/.envRecaliProd' });
+}else{
+   require('dotenv').config();
+}
 
 // handlebars engine view
 app.engine(
