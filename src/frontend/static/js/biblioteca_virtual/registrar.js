@@ -63,7 +63,7 @@ async function registrarlibro(){
     const img = String(ruta);
     const public_id =  String(public); 
     console.log("Registrado");
-    const create = await fetch('http://localhost:3000/api/v1/biblioteca/',{
+    const create = await fetch('/api/v1/biblioteca/',{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',

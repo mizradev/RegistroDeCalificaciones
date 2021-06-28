@@ -2,7 +2,7 @@
 
  
     $(document).ready(function(){
-        let url = 'http://localhost:3000/api/v1/biblioteca/';
+        let url = '/api/v1/biblioteca/';
         let opcion = null;
         let id_libro, isbn, titulo, edicion, descripcionl,img, idioma, editorial, categoria, descripcionc, autor, nacionalidad, premios, ranking, fila;
         //Mostrar
@@ -92,7 +92,7 @@
             confirmButtonText: `Confirmar`,                
             }).then((result) => {               
             if (result.isConfirmed) {
-                fetch('http://localhost:3000/api/v1/biblioteca/'+id_libro,{   
+                fetch('/api/v1/biblioteca/'+id_libro,{   
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json',
@@ -127,7 +127,7 @@
         editorial = $.trim($('#editorial').val());   
 
         if(opcion=='crear'){                
-            fetch('http://localhost:3000/api/v1/biblioteca/',{ 
+            fetch('/api/v1/biblioteca/',{ 
                 method:'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -154,7 +154,7 @@
         }
         if(opcion=='editar'){
             console.log("editar");
-            fetch('http://localhost:3000/api/v1/biblioteca/'+id_libro,{                                
+            fetch('/api/v1/biblioteca/'+id_libro,{                                
                 method: 'PUT',                                        
                 headers: {
                     'Content-Type': 'application/json',
