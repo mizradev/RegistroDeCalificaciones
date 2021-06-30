@@ -5,7 +5,7 @@ const app = express();
 
 const calificacionesCtrl = require('./src/frontend/controllers/registro_calificaciones/ModRegistroCalificacionesCtrl')
 // enviroments vars
-require('dotenv').config();
+require('dotenv').config({path: '../../.env'});
 
 // handlebars engine view
 app.engine('.hbs',
