@@ -88,9 +88,9 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th rowspan="1" colspan="1">Rendering engine</th>
-                                            <th rowspan="1" colspan="1">Browser</th>
-                                            <th rowspan="1" colspan="1">Platform(s)</th>
+                                            <th rowspan="1" colspan="1"></th>
+                                            <th rowspan="1" colspan="1"></th>
+                                            <th rowspan="1" colspan="1"></th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -107,13 +107,16 @@
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Editar nota</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Modal body text goes here.</p>
+        <label>Actividad: </label>
+        <input class="form-control" type="text" value="Gecko" disabled /> <br>
+        <label>Valor: </label>
+        <input class="form-control valorActividad" type="text" placeholder="20" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Editar</button>
