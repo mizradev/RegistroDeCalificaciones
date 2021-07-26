@@ -6,13 +6,13 @@ const CalificacionesCtrl = require('../controllers/CalificacionesCtrl');
 
 const { check } = require('express-validator');
 
-router.get('/alumnos', CalificacionesCtrl.obtenerAlumnosPorAsignaturaDocente);
+//router.get('/alumnos', CalificacionesCtrl.obtenerAlumnosPorAsignaturaDocente);
 router.post('/alumnos/',[
-     check('numero_cuenta', 'El valor no es un dato numerico').isNumeric({max: 11}),
-     check('nombre_persona','Se esperaba un valor minimo de 4 caracteres').isLength({min: 4}),
-     check('parcial', 'El valor no es un dato numerico').isNumeric(),
-     check('nota_final', 'El valor no es un dato numerico').isNumeric(),
-      check('observacion', 'Se esperaba un valor minimo de 4 caracteres').isLength({min: 4}),
+    check('numero_cuenta', 'El valor no es un dato numerico').isNumeric({max: 11}),
+    check('nombre_persona','Se esperaba un valor minimo de 4 caracteres').isLength({min: 4}),
+    check('parcial', 'El valor no es un dato numerico').isNumeric(),
+    check('nota_final', 'El valor no es un dato numerico').isNumeric(),
+    check('observacion', 'Se esperaba un valor minimo de 4 caracteres').isLength({min: 4}),
     ],CalificacionesCtrl.obtenerAlumnosPorAsignaturaDocente);
 
 router.get('/alumnos/:id', CalificacionesCtrl.obtenerNotasPorAlumno);
