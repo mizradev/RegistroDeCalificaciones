@@ -15,14 +15,14 @@ exports.obtenerNotasPorAlumno = async (req, res) => {   const errors = validatio
         console.log(error);
     }
   }
-exports.obtenerAlumnosPorAsignaturaDocente = async (req, res) => {   const errors = validationResult(req);
+exports.obtenerAlumnosPorClase = async (req, res) => {   const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(422).json({errors: errors.array()});
     }
-    const { numero_cuenta,nombre_persona,parcial,nota_final,observacion } = req.body;
-    const query ='call obtenerAlumnosPorAsignaturaDocente(?,?,?,?,?)';
+    const { numero_cuenta,nombre_persona,nota_final,observacion } = req.body;
+    const query ='call obtenerAlumnosPorClase(?,?,?,?)';
         try {
-            const result = await mysqlConnection.query(query,[numero_cuenta,nombre_persona,parcial,nota_final,observacion ]);
+            const result = await mysqlConnection.query(query,[numero_cuenta,nombre_persona,nota_final,observacion ]);
             return res.status(200).json({error: false, datos: result}); 
         } catch (error) {
             console.log(error);
