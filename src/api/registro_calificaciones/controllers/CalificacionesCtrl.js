@@ -14,7 +14,6 @@ exports.obtenerNotasPorAlumno = async (req, res) => {   const errors = validatio
     } catch (error) {
         console.log(error);
     }
-  }
 exports.obtenerAlumnosPorClase = async (req, res) => {   const errors = validationResult(req);
     if(!errors.isEmpty()){
         return res.status(422).json({errors: errors.array()});
@@ -28,16 +27,17 @@ exports.obtenerAlumnosPorClase = async (req, res) => {   const errors = validati
             console.log(error);
         }
     }
+}
 
-    exports.informacion_notas = async (req, res) => {   const errors = validationResult(req);
-        if(!errors.isEmpty())
-            return res.status(422).json({errors: errors.array()});
-        const {nombre_asignatura,seccion, nombre_persona,parcial } = req.body;
-        const query ='call informacion_notas(?)';
-        try {
-            const result = await mysqlConnection.query(query,[nombre_asignatura,seccion, nombre_persona,parcial ]);
-            return res.status(200).json({error: false, datos: result}); 
-        } catch (error) {
-            console.log(error);
-        }
+exports.informacion_notas = async (req, res) => {   const errors = validationResult(req);
+    if(!errors.isEmpty())
+        return res.status(422).json({errors: errors.array()});
+    const {nombre_asignatura,seccion, nombre_persona,parcial } = req.body;
+    const query ='call informacion_notas(?)';
+    try {
+        const result = await mysqlConnection.query(query,[nombre_asignatura,seccion, nombre_persona,parcial ]);
+        return res.status(200).json({error: false, datos: result}); 
+    } catch (error) {
+        console.log(error);
     }
+}

@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path: '../../.env'});
 const mysql = require('mysql');
 const { promisify } = require('util');
 
